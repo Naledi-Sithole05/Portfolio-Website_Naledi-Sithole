@@ -11,7 +11,6 @@ a{
     gap: 1rem;
     border-color: rgb(24, 24, 24);
     border-radius: 10px;
-    
 }
 
 #nav-Container{
@@ -20,6 +19,42 @@ a{
     align-items: center;
     padding: 1rem;
     font-family: 'Bebas Neue';
+    
+}
+
+.inner-Card1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;    
+  text-align: center;    
+  background-color: transparent;
+  color: rgb(136, 136, 136);
+  border-radius: 10px;
+  padding: 20px;
+  margin-right: 70rem;
+  border: 5px solid rgb(80, 80, 80);
+  font-family: 'Bebas Neue';
+}
+.inner-Card2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;    
+  text-align: center;    
+  background-color: transparent;
+  color: rgb(136, 136, 136);
+  border-radius: 10px;
+  padding: 100px;
+  margin-right: 70rem;
+  border: 5px solid rgb(80, 80, 80);
+  font-family: 'Bebas Neue';
+}
+
+.opening-Pagetext{
+    color:antiquewhite;
+    text-align: center;
+    font-family: "Bebas Neue";
+    font-size: 8rem;
+    
     
 }
 
