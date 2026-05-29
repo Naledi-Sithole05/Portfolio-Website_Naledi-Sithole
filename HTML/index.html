@@ -3,36 +3,88 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Naledi Sithole Porfolio</title>
+  <title>Naledi Sithole Portfolio</title>
   <link rel="stylesheet" href="/CSS/main.css">
-  <script src="/JS/interaction.js" defer></script>
-  <script src="/JS/navigation.js" defer></script>
+  <link rel="stylesheet" href="/CSS/animations.css">
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+  <script src="/JS/animation.js" defer></script>
+  <script src="/JS/navigation.js" defer></script>
+  <script src="/JS/interaction.js" defer></script>
 </head>
 <body>
- <section id="main-Container">
-    <div id="home-Container">
-      <h1 class="opening-Pagetext">Naledi Sithole <br>Portfolio</h1>
-      
-      <div class="inner-Card1">
-        <p>Developer, Designer and Digital Marketer</p>
-      </div>
-      <div class="inner-Card2">
-        <p>Welcome to my portfolio website! This website serves as a showcase of my skills, projects, and experiences in the field. Feel free to explore and learn more about me and my work.</p>
-      </div>
 
-      <div class="inner-Card3">
-        <p class="innercard3-text">Tools I am knowledgeable in</p>
-        <br>
-        <img src="/IMGS/Logo-Imgs/25231.png" alt="HTML Logo" class="logo-Img">
-        <img src="/IMGS/Logo-Imgs/Affinity_(App)_Logo.svg.png" alt="Affinity Logo" class="logo-Img">
-        <img src="/IMGS/Logo-Imgs/Blender_logo_no_text.svg.png" class="logo-Img" alt="Blender Logo">
-        <img src="/IMGS/Logo-Imgs/Calligrakrita-base.svg.png" class="logo-Img" alt="krita Logo">
-        <img src="/IMGS/Logo-Imgs/Unity_2021.png" class="logo-Img" alt="Unity Logo">
-        <img src="/IMGS/Logo-Imgs/canva-app-logo-on-a-transparent-background-free-png.png" class="logo-Img" alt="Canva Logo">
+  <!-- 1. FRAME STORE — images preload here, JS reads src from these -->
+  <section id="frame-store">
+    <div class="imgs"><img class="anim-frame" src="/IMGS/Animation-Imgs/0001.png" alt="" /></div>
+    <div class="imgs"><img class="anim-frame" src="/IMGS/Animation-Imgs/0002.png" alt="" /></div>
+    <div class="imgs"><img class="anim-frame" src="/IMGS/Animation-Imgs/0003.png" alt="" /></div>
+    <div class="imgs"><img class="anim-frame" src="/IMGS/Animation-Imgs/0004.png" alt="" /></div>
+    <div class="imgs"><img class="anim-frame" src="/IMGS/Animation-Imgs/0005.png" alt="" /></div>
+    <div class="imgs"><img class="anim-frame" src="/IMGS/Animation-Imgs/0006.png" alt="" /></div>
+    <div class="imgs"><img class="anim-frame" src="/IMGS/Animation-Imgs/0007.png" alt="" /></div>
+    <div class="imgs"><img class="anim-frame" src="/IMGS/Animation-Imgs/0008.png" alt="" /></div>
+    <div class="imgs"><img class="anim-frame" src="/IMGS/Animation-Imgs/0009.png" alt="" /></div>
+    <div class="imgs"><img class="anim-frame" src="/IMGS/Animation-Imgs/0010.png" alt="" /></div>
+    <div class="imgs"><img class="anim-frame" src="/IMGS/Animation-Imgs/0011.png" alt="" /></div>
+    <div class="imgs"><img class="anim-frame" src="/IMGS/Animation-Imgs/0012.png" alt="" /></div>
+    <div class="imgs"><img class="anim-frame" src="/IMGS/Animation-Imgs/0013.png" alt="" /></div>
+    <div class="imgs"><img class="anim-frame" src="/IMGS/Animation-Imgs/0014.png" alt="" /></div>
+    <div class="imgs"><img class="anim-frame" src="/IMGS/Animation-Imgs/0015.png" alt="" /></div>
+    <div class="imgs"><img class="anim-frame" src="/IMGS/Animation-Imgs/0016.png" alt="" /></div>
+    <div class="imgs"><img class="anim-frame" src="/IMGS/Animation-Imgs/0017.png" alt="" /></div>
+    <div class="imgs"><img class="anim-frame" src="/IMGS/Animation-Imgs/0018.png" alt="" /></div>
+    <div class="imgs"><img class="anim-frame" src="/IMGS/Animation-Imgs/0019.png" alt="" /></div>
+    <div class="imgs"><img class="anim-frame" src="/IMGS/Animation-Imgs/0020.png" alt="" /></div>
+  </section>
+
+  <!-- 2. ANIMATION STAGE — sits on top, z-index 10 -->
+  <div id="anim-stage">
+    <img id="frame-img" src="" alt="Animation frame" />
+    <div id="scroll-hint">
+      <span>Scroll</span>
+      <div class="hint-line"></div>
+    </div>
+    <div id="anim-progress"><div id="anim-progress-fill"></div></div>
+  </div>
+
+  <!-- 3. PAGE CONTENT — hidden underneath, fades in after animation -->
+  <section class="hero-section" id="hero-section">
+    <section id="main-Container">
+      <div id="home-Container">
+
+        <h1 class="opening-Pagetext">Naledi Sithole<br>Portfolio</h1>
+
+        <div class="inner-Card1">
+          <p>Developer,<br>Designer &amp;<br>Digital Marketer</p>
+        </div>
+
+        <div></div>
+
+        <div class="inner-Card2">
+          <p>Design,<br>Development<br>&amp; Digital Art</p>
+        </div>
+
+        <div class="inner-Card3">
+          <p class="innercard3-text">Tools I am knowledgeable in</p>
+          <div style="margin-top: 0.5rem;">
+            <img src="/IMGS/Logo-Imgs/25231.png" alt="HTML" class="logo-Img">
+            <img src="/IMGS/Logo-Imgs/Affinity_(App)_Logo.svg.png" alt="Affinity" class="logo-Img">
+            <img src="/IMGS/Logo-Imgs/Blender_logo_no_text.svg.png" alt="Blender" class="logo-Img">
+            <img src="/IMGS/Logo-Imgs/Calligrakrita-base.svg.png" alt="Krita" class="logo-Img">
+            <img src="/IMGS/Logo-Imgs/Unity_2021.png" alt="Unity" class="logo-Img">
+            <img src="/IMGS/Logo-Imgs/canva-app-logo-on-a-transparent-background-free-png.png" alt="Canva" class="logo-Img">
+          </div>
+        </div>
+
+        <div class="inner-Card2" style="grid-column: 3 / 4; align-self: end; margin-top: 0;">
+          <p style="font-family: 'Syne', sans-serif; font-size: 0.78rem; line-height: 1.7; text-transform: none; color: rgba(240,230,211,0.55);">
+            Welcome to my portfolio. A showcase of my skills, projects, and experiences in design, development and digital art.
+          </p>
+        </div>
+
       </div>
-      
     </section>
+  </section>
 
 </body>
 </html>

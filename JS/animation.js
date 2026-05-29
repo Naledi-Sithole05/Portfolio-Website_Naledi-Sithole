@@ -1,6 +1,6 @@
 const CONFIG = {
   firstFrame: 1,
-  lastFrame: 13,
+  lastFrame: 20,
   pixelsPerFrame: 70,
   easing: 'linear',
   heroDelay: 60,
