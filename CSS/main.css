@@ -1,5 +1,14 @@
 .logo-Img{
     width: 50px;
     height: auto;
-    margin: 50px;
+    margin: 10px;
+}
+
+.inner-Card3{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-top: 50px;
+    width: 500px;
+    height: auto;
 }
