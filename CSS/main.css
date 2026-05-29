@@ -41,14 +41,29 @@
 /* ── BIG HEADLINE — spans full width like "DESIGNTHINKING" ── */
 .opening-Pagetext {
   grid-column: 1 / -1;
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: clamp(4rem, 12vw, 9rem);
+  font-family: 'Bebas Neue';
+  font-size: clamp(4.5rem, 12vw, 9rem);
   line-height: 0.92;
   letter-spacing: -0.01em;
   color: #f0e6d3;
   text-transform: uppercase;
   margin-bottom: 0.5rem;
+  text-align: center;
+  width: 100%;
 }
+.opening-Pagetext1 {
+  display: flex;
+  grid-column: 1 / -1;
+  font-family: 'Bebas Neue';
+  font-size: clamp(8rem, 6vw, 4.5rem);
+  line-height: 0.92;
+  letter-spacing: -0.01em;
+  color: #f0e6d3;
+  text-transform: uppercase;
+  text-align: center;
+  width: 100%;
+}
+
 
 /* ── CARD SHARED STYLES ── */
 .inner-Card1,
@@ -113,11 +128,10 @@
   width: 32px;
   height: 32px;
   object-fit: contain;
-  filter: brightness(0) invert(1);
-  opacity: 0.6;
+ 
   margin-right: 12px;
   margin-top: 4px;
-  transition: opacity 0.2s;
+  
 }
 
 .logo-Img:hover { opacity: 1; }
