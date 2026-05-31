@@ -78,6 +78,14 @@ function finishAnimation() {
   animStage.style.display = 'none';
   heroSection.classList.add('done');
   document.body.classList.add('animation-done');
+
+  // ✅ Reveal the navbar now that the animation is done
+  const nav = document.getElementById('main-nav');
+  if (nav) {
+    nav.style.opacity = '1';
+    nav.style.pointerEvents = 'auto';
+  }
+
   window.removeEventListener('wheel', onWheel);
   window.removeEventListener('touchstart', onTouchStart);
   window.removeEventListener('touchmove', onTouchMove);
