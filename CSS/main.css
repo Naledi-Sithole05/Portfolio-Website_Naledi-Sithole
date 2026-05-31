@@ -1,6 +1,8 @@
-*{
+/* FIX 1: scope the background to block-level root, not every element */
+html, body {
     background: #151515;
-    
+    margin: 0;
+    padding: 0;
 }
 
 .logo-Img{
@@ -17,7 +19,7 @@
     width: 500px;
     height: auto;
 }
-/* ── HOME SECTION LAYOUT ── */
+
 .hero-section {
   opacity: 0;
   transition: opacity 0.4s ease 0.2s;
@@ -29,12 +31,13 @@
   position: relative;
   opacity: 1;
 }
+
+
 #home-Container {
   position: relative;
   width: 100%;
   min-height: 100vh;
   padding: 2rem 2.5rem;
-  background: #151515;
   overflow: hidden;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -43,22 +46,46 @@
   align-items: start;
 }
 
-/* ── BIG HEADLINE — spans full width like "DESIGNTHINKING" ── */
 .opening-Pagetext {
   grid-column: 1 / -1;
   font-family: 'Bebas Neue';
-  font-size: clamp(4.5rem, 12vw, 9rem);
-  
+  font-weight: 300;
+  font-size: clamp(3rem, 13.5vw, 14rem); /* wide range so it fills the line */
   color: #f0e6d3;
+  background-color: transparent;
   text-transform: uppercase;
-  margin-bottom: 0.5rem;
+  margin: 0;
   text-align: center;
   width: 100%;
+  line-height: 0.9;          /* tighten vertical space */
+  letter-spacing: 0.05em;   /* slight tightening like the reference */
+  white-space: nowrap;       /* keeps it on one line */
+}
+/* hero section flash after animtion*/
+.opening-Pagetext {
+  opacity: 0; /* hidden until animation fires */
 }
 
+.opening-Pagetext.animate {
+  animation: textReveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
 
+@keyframes textReveal {
+  from {
+    opacity: 0;
+    filter: blur(12px);
+    letter-spacing: 0.3em;
+  }
+  to {
+    opacity: 1;
+    filter: blur(0);
+    letter-spacing: -0.01em;
+  }
+}
+.opening-Pagetext {
+  animation: textReveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
 
-/* ── CARD SHARED STYLES ── */
 .inner-Card1,
 .inner-Card2,
 .inner-Card3 {
@@ -69,7 +96,6 @@
   gap: 0.8rem;
 }
 
-/* ── CARD 1 — light cream card (left, like "WE TRANSLATE YOUR IDEAS") ── */
 .inner-Card1 {
   grid-column: 1 / 2;
   background: #e8dcc8;
@@ -83,12 +109,12 @@
   line-height: 1.05;
   text-transform: uppercase;
   color: #1a1a1a;
+  background: transparent; /* FIX 2: explicit transparent on text elements */
 }
 
-/* ── CARD 2 — dark card (right, like "COPYWRITE, BRANDING, VFX.") ── */
 .inner-Card2 {
   grid-column: 3 / 4;
-  background: #1a1a1a;
+  background: transparent;
   border: 1px solid rgba(255,255,255,0.08);
   color: #e8dcc8;
   align-self: start;
@@ -100,12 +126,12 @@
   line-height: 1.1;
   text-transform: uppercase;
   color: #e8dcc8;
+  background: transparent; /* FIX 2 */
 }
 
-/* ── CARD 3 — tools / logos card (bottom left) ── */
 .inner-Card3 {
   grid-column: 1 / 2;
-  background: #161616;
+  background: #151515; /* FIX 1: matched to root background */
   border: 1px solid rgba(255,255,255,0.08);
   align-self: end;
 }
@@ -115,25 +141,23 @@
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: rgba(240,230,211,0.45);
+  background: transparent; /* FIX 2 */
+  font-family: 'Bebas Neue', sans-serif;
 }
 
 .logo-Img {
   width: 32px;
   height: 32px;
   object-fit: contain;
- 
   margin-right: 12px;
   margin-top: 4px;
-  
 }
 
 .logo-Img:hover { opacity: 1; }
 
-/* ── MIDDLE COLUMN — empty space (where your animation image could sit) ── */
-/* cards on col 1 and 3 leave the centre col open */
-
+/* FIX 1: matched to #151515 */
 #main-Container {
   width: 100%;
   min-height: 100vh;
-  background: #0d0d0d;
+  background: #151515;
 }

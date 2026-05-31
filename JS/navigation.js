@@ -14,8 +14,14 @@ const listItems = navLinks
   })
   .join('');
 
+// hide on homepage, visible everywhere else
+const isHomePage = currentPage === 'index.html' || currentPage === '';
+const navStyle = isHomePage
+  ? 'opacity: 0; pointer-events: none; transition: opacity 0.5s ease;'
+  : '';
+
 const navbar = `
-  <nav id="main-nav">
+  <nav id="main-nav" style="${navStyle}">
     <a class="nav-logo" href="/HTML/index.html">
       <img src="/IMGS/Site_logo/0001.png" alt="site logo" />
       <span>Naledi Sithole</span>
@@ -25,7 +31,6 @@ const navbar = `
 `;
 
 document.body.insertAdjacentHTML('afterbegin', navbar);
-
 
 
 

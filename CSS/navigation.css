@@ -39,10 +39,11 @@ nav {
 nav ul {
   display: flex;
   align-items: center;
-  gap: 2rem;
+  gap: 18rem;
   list-style: none;
   margin: 0;
   padding: 0;
+  width:100%;
 }
 
 nav ul li a {

@@ -79,7 +79,9 @@ function finishAnimation() {
   heroSection.classList.add('done');
   document.body.classList.add('animation-done');
 
-  // ✅ Reveal the navbar now that the animation is done
+  // ✅ ADD THIS — triggers the blur flash animation
+  document.querySelector('.opening-Pagetext').classList.add('animate');
+
   const nav = document.getElementById('main-nav');
   if (nav) {
     nav.style.opacity = '1';
