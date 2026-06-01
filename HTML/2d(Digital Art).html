@@ -1,22 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Digital Art</title>
-    <script src="/JS/navigation.js" defer></script>
-    <link rel="stylesheet" href="/CSS/navigation.css">
-    <link rel="stylesheet" href="/CSS/main.css">
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Digital Art — Naledi Sithole</title>
+  <link rel="stylesheet" href="/CSS/main.css">
+  <link rel="stylesheet" href="/CSS/navigation.css">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+  
+  <script src="/JS/navigation.js" defer></script>
+  
+  <script src="/JS/sections-overlay.js" defer></script>
 </head>
 <body>
-    <section class="Poster Designs">
-        <div class="2d-Illusrations-Section1">
-            <img class="Poster-Desings-imgText" src="/IMGS/Design-Thinking/poster designs.png">
 
-        </div>
-        
-    </section>
-    
+  <!--
+    OVERLAY LANDING SCREEN
+    The overlay reads every <section data-section-title="…" data-overlay-img="…">
+    on the page and renders them as clickable cards.
+    Nothing extra to add here — sections-overlay.js builds it automatically.
+  -->
+
+  <!-- ── SECTION 1: Poster Designs ─────────────────────────────── -->
+  <section
+    class="project-section"
+    data-section-title="Poster Designs"
+    data-overlay-img="/IMGS/Design-Thinking/poster designs.png"
+  >
+    <!-- Title image — styled like the "Explore" button on the home page -->
+    <img
+      class="section-title-img"
+      src="/IMGS/Design-Thinking/poster designs.png"
+      alt="Poster Designs"
+    >
+
+    <!-- breadcrumb placeholder (filled by scroll-spy) -->
+    <div class="bread-Crumbing"></div>
+
+    <!-- ↓ your poster-designs content goes here ↓ -->
+
+  </section>
+
+
+  <!-- ── SECTION 2: Adidas Campaign ───────────────────────────── -->
+  <section
+    class="project-section"
+    data-section-title="Adidas Campaign"
+    data-overlay-img="/IMGS/Design-Thinking/adidas_Campaign.png"
+  >
+    <img
+      class="section-title-img"
+      src="/IMGS/Design-Thinking/adidas_Campaign.png"
+      alt="Adidas Campaign"
+    >
+
+    <div class="bread-Crumbing"></div>
+
+    <!-- ↓ your adidas campaign content goes here ↓ -->
+
+  </section>
+
+
+  <!-- ── SECTION 3: Character Illustrations ────────────────────── -->
+  <section
+    class="project-section"
+    data-section-title="Character Illustrations"
+    data-overlay-img="/IMGS/Design-Thinking/character illustrations.png"
+  >
+    <img
+      class="section-title-img"
+      src="/IMGS/Design-Thinking/Character_Illustations.png"
+      alt="Character Illustrations"
+    >
+
+    <div class="bread-Crumbing"></div>
+
+    <!-- ↓ your character illustrations content goes here ↓ -->
+
+  </section>
+
 </body>
 </html>

@@ -1,14 +1,17 @@
-/* ── sections-overlay.js ─────────────────────────────────────────
+/* ── SectionsOverlay.js ──────────────────────────────────────────
    Builds a full-screen section-picker overlay on page load.
    Requires each <section> to have:
      data-section-title="My Section"
-     data-overlay-img="/path/to/title-image.png"
+     data-overlay-img="/path/to/title-image.png"   (optional)
+
+   The overlay only opens when 2+ opted-in sections exist.
+   Single-section pages load normally with no overlay and no scroll lock.
    ──────────────────────────────────────────────────────────────── */
 
 (function () {
   'use strict';
 
-  /* ── scroll helpers — defined early so they're always available ── */
+  /* ── scroll helpers ─────────────────────────────────────────── */
   function lockScroll() {
     document.documentElement.style.overflow = 'hidden';
     document.body.style.overflow = 'hidden';
@@ -19,9 +22,8 @@
     document.body.style.overflow = '';
   }
 
-  // Safety net: always ensure scroll is unlocked on load.
-  // If the overlay never opens (no opted-in sections), this is a no-op.
-  // If a previous page navigation left a stale lock, this clears it.
+  /* Safety net: always clear any stale scroll lock on page load.
+     Runs on 'load' (after DOMContentLoaded) so it fires last. */
   window.addEventListener('load', unlockScroll);
 
   document.addEventListener('DOMContentLoaded', () => {
@@ -30,8 +32,13 @@
       document.querySelectorAll('[data-section-title]')
     );
 
-    // No opted-in sections — nothing to do, scroll stays free
-    if (!sections.length) return;
+    /* ── Guard: only show overlay when there are 2+ sections ─── */
+    /* Single-section pages (intro/landing pages) don't need a    */
+    /* picker — just let them scroll normally.                    */
+    if (sections.length < 2) {
+      unlockScroll(); // ensure no stale lock
+      return;
+    }
 
     /* ── build overlay ─────────────────────────────────────────── */
     const itemsHTML = sections
@@ -82,9 +89,16 @@
       window.scrollTo({ top: 0, behavior: 'instant' });
     }
 
-    /* ── close button + backdrop ───────────────────────────────── */
+    /* ── close button + backdrop click ────────────────────────── */
     closeBtn.addEventListener('click', hideOverlay);
     overlay.querySelector('.ov-backdrop').addEventListener('click', hideOverlay);
+
+    /* ── Escape key closes overlay ─────────────────────────────── */
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && !overlay.classList.contains('overlay-hidden')) {
+        hideOverlay();
+      }
+    });
 
     /* ── section cards ─────────────────────────────────────────── */
     overlay.querySelectorAll('.ov-item').forEach(btn => {
@@ -107,7 +121,7 @@
       });
     });
 
-    /* ── breadcrumb "Overview" button ──────────────────────────── */
+    /* ── breadcrumb "Overview" button re-opens overlay ─────────── */
     document.addEventListener('click', (e) => {
       if (e.target.closest('#bc-back-btn')) {
         e.stopImmediatePropagation();
