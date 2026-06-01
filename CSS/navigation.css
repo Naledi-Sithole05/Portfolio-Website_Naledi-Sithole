@@ -1,6 +1,9 @@
 /* ── Import fonts ─────────────────────────────── */
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&family=Jost:wght@300;400;500&display=swap');
 
+/* ════════════════════════════════════════════════
+   NAV BAR  —  original layout preserved exactly
+   ════════════════════════════════════════════════ */
 nav {
   background:  #151515;
   border-bottom: 0.5px solid #151515;
@@ -43,7 +46,7 @@ nav ul {
   list-style: none;
   margin: 0;
   padding: 0;
-  width:100%;
+  width: 100%;
 }
 
 nav ul li a {
@@ -63,4 +66,318 @@ nav ul li a.active {
   color: #2C2C2A;
   font-weight: 500;
   transform: scale(1.08);
+}
+
+/* ════════════════════════════════════════════════
+   BREADCRUMB BAR
+   Sits below the sticky nav.
+   ════════════════════════════════════════════════ */
+:root {
+  --nav-height: 64px;
+  --bc-height:  42px;
+  --clr-bg:        #0e0e0e;
+  --clr-surface:   #151515;
+  --clr-border:    rgba(255,255,255,0.08);
+  --clr-cream:     #e8dcc8;
+  --clr-cream-dim: rgba(240,230,211,0.45);
+  --radius-pill:   100px;
+  --font-display:  'Bebas Neue', sans-serif;
+  --font-body:     'Jost', sans-serif;
+  --ease-out:      cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.breadcrumb {
+  position: sticky;
+  top: var(--nav-height);          /* sticks just under the nav */
+  z-index: 99;
+  height: var(--bc-height);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+  background: rgba(21,21,21,0.92);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--clr-border);
+  box-sizing: border-box;
+  animation: bcSlideIn 0.5s var(--ease-out) 0.15s both;
+}
+
+@keyframes bcSlideIn {
+  from { transform: translateY(-100%); opacity: 0; }
+  to   { transform: translateY(0);     opacity: 1; }
+}
+
+/* trail */
+.bc-trail {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-family: var(--font-body);
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.bc-sep {
+  color: rgba(240,230,211,0.2);
+  font-size: 0.8rem;
+  user-select: none;
+}
+
+.bc-link {
+  color: var(--clr-cream-dim);
+  text-decoration: none;
+  padding: 0.15rem 0.5rem;
+  border-radius: 4px;
+  transition: color 0.18s ease, background 0.18s ease;
+}
+
+.bc-link:hover {
+  color: var(--clr-cream);
+  background: rgba(232,220,200,0.07);
+}
+
+.bc-current {
+  color: var(--clr-cream);
+  font-weight: 500;
+  padding: 0.15rem 0.5rem;
+  border-radius: 4px;
+  background: rgba(232,220,200,0.07);
+  transition: opacity 0.2s ease;
+}
+
+/* back / overview button */
+.bc-back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--clr-cream-dim);
+  background: transparent;
+  border: 1px solid rgba(232,220,200,0.14);
+  border-radius: var(--radius-pill);
+  padding: 0.28rem 0.9rem;
+  cursor: pointer;
+  transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+
+.bc-back-btn:hover {
+  color: var(--clr-cream);
+  border-color: rgba(232,220,200,0.35);
+  background: rgba(232,220,200,0.07);
+}
+
+.bc-back-btn svg {
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+}
+
+.bc-back-btn:hover svg {
+  transform: translateX(-2px);
+}
+
+/* ════════════════════════════════════════════════
+   SECTIONS OVERLAY
+   Full-screen landing that hides sections on load.
+   ════════════════════════════════════════════════ */
+#sections-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 300;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.45s var(--ease-out), visibility 0.45s;
+  opacity: 1;
+  visibility: visible;
+}
+
+#sections-overlay.overlay-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.ov-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(10,10,10,0.92);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+.ov-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.5rem;
+  padding: 3rem 2rem;
+  max-width: 1100px;
+  width: 100%;
+  box-sizing: border-box;
+  animation: ovContentReveal 0.6s var(--ease-out) 0.1s both;
+}
+
+@keyframes ovContentReveal {
+  from { opacity: 0; transform: translateY(24px) scale(0.97); }
+  to   { opacity: 1; transform: translateY(0)    scale(1); }
+}
+
+.ov-eyebrow {
+  font-family: var(--font-body);
+  font-size: 0.68rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--clr-cream-dim);
+  margin: 0;
+}
+
+.ov-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.8rem;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.ov-item {
+  position: relative;
+  background: rgba(232,220,200,0.03);
+  border: 1px solid rgba(232,220,200,0.1);
+  border-radius: 20px;
+  padding: 2rem 2.5rem;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 220px;
+  flex: 1;
+  max-width: 320px;
+  animation: explorePulse 2.2s ease-in-out infinite;
+  transition: transform 0.25s var(--ease-out),
+              border-color 0.25s ease,
+              background 0.25s ease;
+}
+
+.ov-item:nth-child(2) { animation-delay: -0.7s; }
+.ov-item:nth-child(3) { animation-delay: -1.4s; }
+.ov-item:nth-child(4) { animation-delay: -2.1s; }
+
+/* reuse the same pulse keyframes as the home "Explore" button */
+@keyframes explorePulse {
+  0%, 100% {
+    transform: translateY(0px);
+    filter: drop-shadow(0 0 8px rgba(240,230,211,0.06));
+  }
+  50% {
+    transform: translateY(-6px);
+    filter: drop-shadow(0 0 20px rgba(240,230,211,0.22));
+  }
+}
+
+.ov-item:hover {
+  animation-play-state: paused;
+  transform: scale(1.04);
+  border-color: rgba(232,220,200,0.28);
+  background: rgba(232,220,200,0.07);
+}
+
+.ov-item-img {
+  width: 100%;
+  max-width: 260px;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  filter: drop-shadow(0 0 18px rgba(240,230,211,0.12));
+  transition: filter 0.25s ease;
+}
+
+.ov-item:hover .ov-item-img {
+  filter: drop-shadow(0 0 28px rgba(240,230,211,0.35));
+}
+
+.ov-item-label {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--clr-cream);
+}
+
+.ov-item-hover-line {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0%;
+  height: 1.5px;
+  background: var(--clr-cream);
+  border-radius: 2px;
+  transition: width 0.3s var(--ease-out);
+  opacity: 0.4;
+}
+
+.ov-item:hover .ov-item-hover-line { width: 60%; }
+
+.ov-close {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--clr-cream-dim);
+  background: transparent;
+  border: 1px solid rgba(232,220,200,0.12);
+  border-radius: var(--radius-pill);
+  padding: 0.55rem 1.4rem;
+  cursor: pointer;
+  transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+
+.ov-close:hover {
+  color: var(--clr-cream);
+  border-color: rgba(232,220,200,0.3);
+  background: rgba(232,220,200,0.06);
+}
+
+/* ════════════════════════════════════════════════
+   SECTION TITLE IMAGES
+   Matches the "Explore" pulse on the home page.
+   Add class="section-title-img" to the <img> at
+   the top of each project section.
+   ════════════════════════════════════════════════ */
+.section-title-img {
+  display: block;
+  width: clamp(160px, 28vw, 360px);
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 0 18px rgba(240,230,211,0.12));
+  animation: explorePulse 2.2s ease-in-out infinite;
+  margin: 0 auto 2rem auto;
+}
+
+.section-title-img:hover {
+  animation-play-state: paused;
+  filter: drop-shadow(0 0 28px rgba(240,230,211,0.3));
+}
+
+/* ════════════════════════════════════════════════
+   RESPONSIVE
+   ════════════════════════════════════════════════ */
+@media (max-width: 640px) {
+  nav { padding: 0 1rem; }
+  .breadcrumb { padding: 0 1rem; }
+  .ov-grid { gap: 1rem; }
+  .ov-item { min-width: 160px; padding: 1.4rem 1.2rem; }
+  .nav-logo span { display: none; }
 }
