@@ -14,7 +14,7 @@
 </head>
 <body>
 
-  <!-- 1. FRAME STORE -->
+  <!-- animations -->
   <section id="frame-store">
     <div class="imgs"><img class="anim-frame" src="/IMGS/Animation-Imgs/0001.png" alt="" /></div>
     <div class="imgs"><img class="anim-frame" src="/IMGS/Animation-Imgs/0002.png" alt="" /></div>
@@ -38,7 +38,6 @@
     <div class="imgs"><img class="anim-frame" src="/IMGS/Animation-Imgs/0020.png" alt="" /></div>
   </section>
 
-  <!-- 2. ANIMATION STAGE -->
   <div id="anim-stage">
     <img id="frame-img" src="" alt="Animation frame" />
     <div id="scroll-hint">
@@ -48,26 +47,23 @@
     <div id="anim-progress"><div id="anim-progress-fill"></div></div>
   </div>
 
-  <!-- 3. PAGE CONTENT -->
+  <!-- PAGE CONTENT -->
   <section class="hero-section" id="hero-section">
     <section id="main-Container">
       <div id="home-Container">
 
-        <!-- heading: design thinking image + Portfolio h1 -->
         <div class="opening-Pagetext">
           <img class="opening-Pagetext-img" src="/IMGS/Design-Thinking/design thinking.png" alt="Design Thinking">
           <h1 class="opening-Pagetext-sub">Portfolio</h1>
         </div>
 
-        <!-- card 1 -->
         <div class="inner-Card1">
           <p>Developer,<br>Designer &amp;<br>Digital Marketer</p>
         </div>
 
-        <!-- middle column -->
-        <div><img class="middle-img" src="/IMGS/Design-Thinking/explore more.png" alt="Middle Image"></div>
+        <!-- middle column: empty spacer -->
+        <div></div>
 
-        <!-- card 2 wrapper: card + portrait image beside it -->
         <div class="card2-wrapper">
           <div class="inner-Card2">
             <p>Design,<br>Development<br>&amp; Digital Art</p>
@@ -75,7 +71,6 @@
           <img class="Intro-img" src="/IMGS/Portfolio-IMG/my portfolio image.png" alt="My Portfolio Image">
         </div>
 
-        <!-- card 3 -->
         <div class="inner-Card3">
           <p class="innercard3-text">Tools I am knowledgeable in</p>
           <div style="margin-top: 0.5rem;">
@@ -88,19 +83,28 @@
           </div>
         </div>
 
-        <!-- welcome text card -->
         <div class="inner-Card2 welcome-card">
-          <p style="font-family: 'Syne', sans-serif; font-size: 0.78rem; line-height: 1.7; text-transform: none; color: rgba(240,230,211,0.55);">
+          <p style="font-family: 'Jost', sans-serif; font-size: 0.90rem; line-height: 1.7; text-transform: none; color: rgba(240,230,211,0.55);">
             Welcome to my portfolio. A showcase of my skills, projects, and experiences in design, development and digital art.
           </p>
+        </div>
+
+        <!-- EXPLORE trigger — spans full width, sits at bottom of grid -->
+        <div class="explore-trigger-row">
+          <button class="explore-trigger" id="explore-btn" aria-label="Explore more">
+            <img class="middle-img" src="/IMGS/Design-Thinking/explore more.png" alt="Explore">
+          </button>
         </div>
 
       </div>
     </section>
   </section>
 
+  <!-- VEIL: covers sections 2 & 3 until explore is clicked -->
+  <div class="content-veil" id="content-veil"></div>
+
   <!-- SECTION 2 -->
-  <section class="Home-section2">
+  <section class="Home-section2 gated-section">
     <div class="Section2-Container">
 
       <div class="campaign-text-image">
@@ -109,8 +113,11 @@
 
       <div class="campaign-body">
         <img class="Adidas-Campaign-img" src="/IMGS/Adidas_imgs/Originals.png" alt="Adidas">
+        <img class="Adidas-Campaign-img-1" src="/IMGS/Adidas_imgs/Originals (1).png" alt="Adidas">
+        <img class="Adidas-Campaign-img-2" src="/IMGS/Adidas_imgs/Moeketsi Mochela.png" alt="Adidas">
+        <img class="Tape-Overlay-Top" src="/IMGS/Design-Thinking/tape.png" alt="Tape Overlay">
         <div class="campaign-footer">
-          <p class="campaign-desc">A showcase of client work completed as the Creative Director and Editor for an Adidas campaign, achieving over 900 likes and shares on Instagram.</p>
+          <p class="campaign-desc">A showcase of client work completed as the Creative Director and Editor for an Adidas campaign, achieving over 1000 likes and shares on Instagram.</p>
           <a href="#" class="Explore-Campaign">
             <span>Explore Campaign</span>
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
@@ -124,7 +131,7 @@
   </section>
 
   <!-- SECTION 3 -->
-  <section class="Home-section3">
+  <section class="Home-section3 gated-section">
     <div class="Section3-Container">
 
       <div class="campaign-text-image">
@@ -133,6 +140,10 @@
 
       <div class="campaign-body">
         <img class="Brand-Recall-img" src="/IMGS/BrandRecall_imgs/brand recall_mock up.png" alt="Brand Recall">
+        <img class="Brand-Recall-img-1" src="/IMGS/BrandRecall_imgs/LOGO.png" alt="Brand Recall">
+        <img class="Brand-Recall-img-2" src="/IMGS/BrandRecall_imgs/Brand Recall Media (2).png" alt="Brand Recall">
+        
+        <img class="Tape-Overlay-bottom" src="/IMGS/Design-Thinking/tape.png" alt="Tape Overlay">
         <div class="campaign-footer">
           <p class="campaign-desc">This project showcases some of the client work I produced during my internship at the media company Brand Recall, where I worked as an Illustrator and 3D Artist.</p>
           <a href="#" class="Explore-Campaign">
@@ -146,6 +157,25 @@
 
     </div>
   </section>
+
+  <script>
+    const btn = document.getElementById('explore-btn');
+    const veil = document.getElementById('content-veil');
+    const sections = document.querySelectorAll('.gated-section');
+
+    btn.addEventListener('click', () => {
+      // fade out veil
+      veil.classList.add('veil-lifted');
+      // reveal sections
+      sections.forEach((s, i) => {
+        setTimeout(() => s.classList.add('revealed'), i * 150);
+      });
+      // scroll to section 2
+      setTimeout(() => {
+        document.querySelector('.Home-section2').scrollIntoView({ behavior: 'smooth' });
+      }, 400);
+    });
+  </script>
 
 </body>
 </html>

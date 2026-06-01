@@ -95,7 +95,7 @@ html, body {
   padding: 1rem;
   padding-bottom: 2rem;
   box-sizing: border-box;
-  margin-bottom:600px;
+  margin-bottom: 800px;
 }
 
 .hero-section.visible { opacity: 1; }
@@ -124,7 +124,7 @@ html, body {
   padding: 2rem 2.5rem 3rem 2.5rem;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: auto auto auto;
+  grid-template-rows: auto auto auto auto;
   gap: 1.2rem;
   align-items: start;
   box-sizing: border-box;
@@ -291,7 +291,7 @@ html, body {
   text-transform: uppercase;
   color: rgba(240, 230, 211, 0.666);
   background: transparent;
-  font-family: 'Bebas Neue', sans-serif;
+  font-family: 'Jost', sans-serif;
   margin: 0;
 }
 
@@ -307,9 +307,98 @@ html, body {
 
 .logo-Img:hover { opacity: 1; }
 
-/* ════════════════════════════════════════
+/* ── EXPLORE TRIGGER ROW ── */
+/* Spans all 3 columns, sits as the last row of the grid */
+.explore-trigger-row {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 0 1rem 0;
+}
+
+/* ── EXPLORE BUTTON ── */
+.explore-trigger {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: explorePulse 2.2s ease-in-out infinite;
+  transition: transform 0.2s ease;
+}
+
+.explore-trigger:hover {
+  animation-play-state: paused;
+  transform: scale(1.06);
+}
+
+.middle-img {
+  width: clamp(160px, 22vw, 320px);
+  height: auto;
+  display: block;
+  object-fit: contain;
+  filter: drop-shadow(0 0 18px rgba(240, 230, 211, 0.12));
+}
+
+/* Gentle float + glow pulse to hint at interactivity */
+@keyframes explorePulse {
+  0%, 100% {
+    transform: translateY(0px);
+    filter: drop-shadow(0 0 8px rgba(240, 230, 211, 0.1));
+  }
+  50% {
+    transform: translateY(-8px);
+    filter: drop-shadow(0 0 22px rgba(240, 230, 211, 0.28));
+  }
+}
+
+/* 
+   VEIL — covers sections 2 & 3 before explore is clicked
+ */
+.content-veil {
+  position: fixed;
+  inset: 0;
+  z-index: 4;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(14, 14, 14, 0.55) 20%,
+    rgba(14, 14, 14, 0.92) 60%,
+    rgba(14, 14, 14, 0.98) 100%
+  );
+  pointer-events: none;
+  transition: opacity 0.8s ease;
+}
+
+.content-veil.veil-lifted {
+  opacity: 0;
+}
+
+/* ── GATED SECTIONS — blurred + faded until revealed ── */
+.gated-section {
+  filter: blur(8px);
+  opacity: 0.25;
+  transform: translateY(20px);
+  transition:
+    filter 0.9s ease,
+    opacity 0.9s ease,
+    transform 0.9s ease;
+  pointer-events: none;
+}
+
+.gated-section.revealed {
+  filter: blur(0);
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+/*
    SECTION 2
-════════════════════════════════════════ */
+*/
 .Home-section2 {
   position: relative;
   z-index: 1;
@@ -331,9 +420,9 @@ html, body {
   padding: 0;
 }
 
-/* ════════════════════════════════════════
+/* 
    SECTION 3
-════════════════════════════════════════ */
+*/
 .Home-section3 {
   position: relative;
   z-index: 1;
@@ -369,6 +458,12 @@ html, body {
   display: block;
   object-fit: contain;
   opacity: 0.9;
+  margin-left: 2rem;
+  margin-bottom: -120px;
+  margin-top: -100px;
+  display: inline;
+  margin-left: 430px;
+  
 }
 
 /* ── CAMPAIGN BODY — campaign image + footer ── */
@@ -381,22 +476,52 @@ html, body {
   padding: 2rem 2.5rem 2.5rem 2.5rem;
   box-sizing: border-box;
   gap: 1.8rem;
+  display:grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  
 }
 
 /* ── CAMPAIGN IMAGES ── */
 .Adidas-Campaign-img,
-.Brand-Recall-img {
+.Adidas-Campaign-img-1,
+.Adidas-Campaign-img-2,
+.Brand-Recall-img,
+.Brand-Recall-img-1,
+.Brand-Recall-img-2 {
   width: 100%;
-  max-width: 700px;
+  max-width: 400px;
   height: auto;
   display: block;
-  border-radius: 16px;
+  border-radius: 20px;
   object-fit: cover;
   transition: opacity 0.3s ease, transform 0.4s ease;
 }
 
+.Tape-Overlay-bottom {
+  position: absolute;
+  width: 300px;
+  height: auto;
+  transform: translateX(-50%) rotate(-12deg);
+  opacity: 0.85;
+  margin-bottom: -580px;
+  margin-right:50px;
+}
+.Tape-Overlay-Top {
+  position: absolute;
+  width: 300px;
+  height: auto;
+  transform: translateX(-50%) rotate(-12deg);
+  opacity: 0.85;
+  margin-top: -500px;
+  margin-left:50px;
+}
+
 .Adidas-Campaign-img:hover,
-.Brand-Recall-img:hover {
+.Brand-Recall-img:hover
+.Adidas-Campaign-img-1:hover,
+.Adidas-Campaign-img-2:hover,
+.Brand-Recall-img-1:hover,
+.Brand-Recall-img-2:hover {
   opacity: 0.88;
   transform: scale(1.01);
 }
@@ -424,7 +549,7 @@ html, body {
   letter-spacing: 0.01em;
 }
 
-/* ── EXPLORE BUTTON ── */
+/* ── EXPLORE CAMPAIGN BUTTON ── */
 .Explore-Campaign {
   display: inline-flex;
   align-items: center;
