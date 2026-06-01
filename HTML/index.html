@@ -14,10 +14,7 @@
 </head>
 <body>
 
-   
-
-
-  <!-- 1. FRAME STORE — images preload here, JS reads src from these -->
+  <!-- 1. FRAME STORE -->
   <section id="frame-store">
     <div class="imgs"><img class="anim-frame" src="/IMGS/Animation-Imgs/0001.png" alt="" /></div>
     <div class="imgs"><img class="anim-frame" src="/IMGS/Animation-Imgs/0002.png" alt="" /></div>
@@ -41,7 +38,7 @@
     <div class="imgs"><img class="anim-frame" src="/IMGS/Animation-Imgs/0020.png" alt="" /></div>
   </section>
 
-  <!-- 2. ANIMATION STAGE — sits on top, z-index 10 -->
+  <!-- 2. ANIMATION STAGE -->
   <div id="anim-stage">
     <img id="frame-img" src="" alt="Animation frame" />
     <div id="scroll-hint">
@@ -51,24 +48,34 @@
     <div id="anim-progress"><div id="anim-progress-fill"></div></div>
   </div>
 
-  <!-- 3. PAGE CONTENT — hidden underneath, fades in after animation -->
+  <!-- 3. PAGE CONTENT -->
   <section class="hero-section" id="hero-section">
     <section id="main-Container">
       <div id="home-Container">
 
-        <h1 class="opening-Pagetext">Design Thinking <br> Portfolio</h1>
-      
+        <!-- heading: design thinking image + Portfolio h1 -->
+        <div class="opening-Pagetext">
+          <img class="opening-Pagetext-img" src="/IMGS/Design-Thinking/design thinking.png" alt="Design Thinking">
+          <h1 class="opening-Pagetext-sub">Portfolio</h1>
+        </div>
 
+        <!-- card 1 -->
         <div class="inner-Card1">
           <p>Developer,<br>Designer &amp;<br>Digital Marketer</p>
         </div>
 
-        <div></div>
+        <!-- middle column -->
+        <div><img class="middle-img" src="/IMGS/Design-Thinking/explore more.png" alt="Middle Image"></div>
 
-        <div class="inner-Card2">
-          <p>Design,<br>Development<br>&amp; Digital Art</p>
+        <!-- card 2 wrapper: card + portrait image beside it -->
+        <div class="card2-wrapper">
+          <div class="inner-Card2">
+            <p>Design,<br>Development<br>&amp; Digital Art</p>
+          </div>
+          <img class="Intro-img" src="/IMGS/Portfolio-IMG/my portfolio image.png" alt="My Portfolio Image">
         </div>
 
+        <!-- card 3 -->
         <div class="inner-Card3">
           <p class="innercard3-text">Tools I am knowledgeable in</p>
           <div style="margin-top: 0.5rem;">
@@ -81,7 +88,8 @@
           </div>
         </div>
 
-        <div class="inner-Card2" style="grid-column: 3 / 4; align-self: end; margin-top: 0;">
+        <!-- welcome text card -->
+        <div class="inner-Card2 welcome-card">
           <p style="font-family: 'Syne', sans-serif; font-size: 0.78rem; line-height: 1.7; text-transform: none; color: rgba(240,230,211,0.55);">
             Welcome to my portfolio. A showcase of my skills, projects, and experiences in design, development and digital art.
           </p>
@@ -91,7 +99,53 @@
     </section>
   </section>
 
-  <section class="mainpage-Section1"></section>
+  <!-- SECTION 2 -->
+  <section class="Home-section2">
+    <div class="Section2-Container">
+
+      <div class="campaign-text-image">
+        <img class="Adidas-TextImage" src="/IMGS/Design-Thinking/adidas_Campaign.png" alt="Adidas Campaign">
+      </div>
+
+      <div class="campaign-body">
+        <img class="Adidas-Campaign-img" src="/IMGS/Adidas_imgs/Originals.png" alt="Adidas">
+        <div class="campaign-footer">
+          <p class="campaign-desc">A showcase of client work completed as the Creative Director and Editor for an Adidas campaign, achieving over 900 likes and shares on Instagram.</p>
+          <a href="#" class="Explore-Campaign">
+            <span>Explore Campaign</span>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SECTION 3 -->
+  <section class="Home-section3">
+    <div class="Section3-Container">
+
+      <div class="campaign-text-image">
+        <img class="Brand-Recall-TextImage" src="/IMGS/Design-Thinking/brand recall image.png" alt="Brand Recall">
+      </div>
+
+      <div class="campaign-body">
+        <img class="Brand-Recall-img" src="/IMGS/BrandRecall_imgs/brand recall_mock up.png" alt="Brand Recall">
+        <div class="campaign-footer">
+          <p class="campaign-desc">This project showcases some of the client work I produced during my internship at the media company Brand Recall, where I worked as an Illustrator and 3D Artist.</p>
+          <a href="#" class="Explore-Campaign">
+            <span>Explore Campaign</span>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
 
 </body>
 </html>

@@ -1,28 +1,101 @@
-/* FIX 1: scope the background to block-level root, not every element */
+/* ── ROOT ── */
 html, body {
-    background: #151515;
-    margin: 0;
-    padding: 0;
+  background: #0e0e0e;
+  margin: 0;
+  padding: 0;
 }
 
-.logo-Img{
-    width: 50px;
-    height: auto;
-    margin: 10px;
+/* ── FRAME STORE ── */
+#frame-store {
+  display: none;
 }
 
-.inner-Card3{
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    margin-top: 50px;
-    width: 500px;
-    height: auto;
+/* ── ANIMATION STAGE ── */
+#anim-stage {
+  position: fixed;
+  inset: 0;
+  top: 64px;
+  z-index: 99;
+  background: #151515;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.6s ease;
 }
 
+#anim-stage.exit {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#frame-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ── SCROLL HINT ── */
+#scroll-hint {
+  position: absolute;
+  bottom: 2.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  color: rgba(240, 230, 211, 0.5);
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  transition: opacity 0.3s ease;
+}
+
+#scroll-hint.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.hint-line {
+  width: 1px;
+  height: 40px;
+  background: rgba(240, 230, 211, 0.3);
+  animation: hintPulse 1.6s ease-in-out infinite;
+}
+
+@keyframes hintPulse {
+  0%, 100% { opacity: 0.3; transform: scaleY(1); }
+  50%       { opacity: 1;   transform: scaleY(1.2); }
+}
+
+/* ── PROGRESS BAR ── */
+#anim-progress {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+#anim-progress-fill {
+  height: 100%;
+  width: 0%;
+  background: #e8dcc8;
+  transition: width 0.1s linear;
+}
+
+/* ── HERO SECTION ── */
 .hero-section {
   opacity: 0;
   transition: opacity 0.4s ease 0.2s;
+  position: relative;
+  z-index: 1;
+  padding: 1rem;
+  padding-bottom: 2rem;
+  box-sizing: border-box;
+  margin-bottom:600px;
 }
 
 .hero-section.visible { opacity: 1; }
@@ -32,42 +105,71 @@ html, body {
   opacity: 1;
 }
 
+/* ── MAIN CONTAINER ── */
+#main-Container {
+  width: 100%;
+  min-height: auto;
+  background: #151515;
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-sizing: border-box;
+  overflow: visible;
+}
 
+/* ── HOME GRID ── */
 #home-Container {
   position: relative;
   width: 100%;
-  min-height: 100vh;
-  padding: 2rem 2.5rem;
-  overflow: hidden;
+  min-height: auto;
+  padding: 2rem 2.5rem 3rem 2.5rem;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: auto 1fr auto;
+  grid-template-rows: auto auto auto;
   gap: 1.2rem;
   align-items: start;
+  box-sizing: border-box;
 }
 
+/* ── OPENING HEADING WRAPPER ── */
 .opening-Pagetext {
   grid-column: 1 / -1;
-  font-family: 'Bebas Neue';
-  font-weight: 300;
-  font-size: clamp(3rem, 13.5vw, 14rem); /* wide range so it fills the line */
-  color: #f0e6d3;
-  background-color: transparent;
-  text-transform: uppercase;
-  margin: 0;
-  text-align: center;
   width: 100%;
-  line-height: 0.9;          /* tighten vertical space */
-  letter-spacing: 0.05em;   /* slight tightening like the reference */
-  white-space: nowrap;       /* keeps it on one line */
-}
-/* hero section flash after animtion*/
-.opening-Pagetext {
-  opacity: 0; /* hidden until animation fires */
+  padding: 0 2rem;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  margin: 0;
+  opacity: 0;
 }
 
 .opening-Pagetext.animate {
   animation: textReveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.opening-Pagetext-img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  margin-left: 100px;
+}
+
+.opening-Pagetext-sub {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(3rem, 13.5vw, 14rem);
+  font-weight: 300;
+  color: #f0e6d3;
+  background: transparent;
+  text-transform: uppercase;
+  line-height: 0.9;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  text-align: center;
 }
 
 @keyframes textReveal {
@@ -82,10 +184,8 @@ html, body {
     letter-spacing: -0.01em;
   }
 }
-.opening-Pagetext {
-  animation: textReveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
 
+/* ── CARDS SHARED ── */
 .inner-Card1,
 .inner-Card2,
 .inner-Card3 {
@@ -96,6 +196,7 @@ html, body {
   gap: 0.8rem;
 }
 
+/* ── CARD 1 ── */
 .inner-Card1 {
   grid-column: 1 / 2;
   background: #e8dcc8;
@@ -109,13 +210,30 @@ html, body {
   line-height: 1.05;
   text-transform: uppercase;
   color: #1a1a1a;
-  background: transparent; /* FIX 2: explicit transparent on text elements */
+  background: transparent;
+  margin: 0;
 }
 
+/* ── CARD 2 WRAPPER — holds card + portrait side by side ── */
+.card2-wrapper {
+  grid-column: 3 / 4;
+  display: flex;
+  align-items: flex-end;
+  gap: 0;
+  position: relative;
+  align-self: start;
+}
+
+.card2-wrapper .inner-Card2 {
+  grid-column: unset;
+  flex: 1;
+}
+
+/* ── CARD 2 ── */
 .inner-Card2 {
   grid-column: 3 / 4;
   background: transparent;
-  border: 1px solid rgba(255,255,255,0.08);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   color: #e8dcc8;
   align-self: start;
 }
@@ -126,38 +244,222 @@ html, body {
   line-height: 1.1;
   text-transform: uppercase;
   color: #e8dcc8;
-  background: transparent; /* FIX 2 */
+  background: transparent;
+  margin: 0;
 }
 
+/* ── WELCOME CARD — bottom right ── */
+.welcome-card {
+  grid-column: 3 / 4;
+  align-self: end;
+  margin-top: 0;
+}
+
+/* ── PORTRAIT IMAGE ── */
+.Intro-img {
+  width: 300px;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  transform: rotate(6deg);
+  margin-left: -10px;
+  align-self: flex-end;
+}
+
+/* ── CARD 3 ── */
 .inner-Card3 {
   grid-column: 1 / 2;
-  background: #151515; /* FIX 1: matched to root background */
-  border: 1px solid rgba(255,255,255,0.08);
+  background: #151515;
+  border: 1px solid rgba(255, 255, 255, 0.08);
   align-self: end;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-top: 50px;
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  border-radius: 18px;
+  padding: 1.6rem 1.8rem;
+  box-sizing: border-box;
 }
 
 .innercard3-text {
-  font-size: 0.65rem;
+  width: 100%;
+  font-size: 0.7rem;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: rgba(240,230,211,0.45);
-  background: transparent; /* FIX 2 */
+  color: rgba(240, 230, 211, 0.666);
+  background: transparent;
   font-family: 'Bebas Neue', sans-serif;
+  margin: 0;
 }
 
+/* ── LOGO IMAGES ── */
 .logo-Img {
-  width: 32px;
-  height: 32px;
+  width: 60px;
+  height: 60px;
   object-fit: contain;
   margin-right: 12px;
   margin-top: 4px;
+  transition: opacity 0.2s ease;
 }
 
 .logo-Img:hover { opacity: 1; }
 
-/* FIX 1: matched to #151515 */
-#main-Container {
+/* ════════════════════════════════════════
+   SECTION 2
+════════════════════════════════════════ */
+.Home-section2 {
+  position: relative;
+  z-index: 1;
+  margin-top: 1rem;
+  padding: 0 1rem 1rem 1rem;
+  box-sizing: border-box;
+}
+
+.Section2-Container {
   width: 100%;
   min-height: 100vh;
-  background: #151515;
+  background: #1c1c1c;
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-sizing: border-box;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+}
+
+/* ════════════════════════════════════════
+   SECTION 3
+════════════════════════════════════════ */
+.Home-section3 {
+  position: relative;
+  z-index: 1;
+  padding: 0 1rem 1rem 1rem;
+  box-sizing: border-box;
+}
+
+.Section3-Container {
+  width: 100%;
+  min-height: 100vh;
+  background: #222222;
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-sizing: border-box;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+}
+
+/* ── TEXT IMAGE — pinned to top of section ── */
+.campaign-text-image {
+  width: 100%;
+  padding: 2.5rem 2.5rem 0 2.5rem;
+  box-sizing: border-box;
+}
+
+.Adidas-TextImage,
+.Brand-Recall-TextImage {
+  width: auto;
+  max-width: 50%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  opacity: 0.9;
+}
+
+/* ── CAMPAIGN BODY — campaign image + footer ── */
+.campaign-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 2.5rem 2.5rem 2.5rem;
+  box-sizing: border-box;
+  gap: 1.8rem;
+}
+
+/* ── CAMPAIGN IMAGES ── */
+.Adidas-Campaign-img,
+.Brand-Recall-img {
+  width: 100%;
+  max-width: 700px;
+  height: auto;
+  display: block;
+  border-radius: 16px;
+  object-fit: cover;
+  transition: opacity 0.3s ease, transform 0.4s ease;
+}
+
+.Adidas-Campaign-img:hover,
+.Brand-Recall-img:hover {
+  opacity: 0.88;
+  transform: scale(1.01);
+}
+
+/* ── FOOTER ROW — description + button ── */
+.campaign-footer {
+  width: 100%;
+  max-width: 700px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+/* ── DESCRIPTION TEXT ── */
+.campaign-desc {
+  font-family: 'Jost', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 300;
+  line-height: 1.75;
+  color: rgba(240, 230, 211, 0.45);
+  margin: 0;
+  max-width: 420px;
+  text-transform: none;
+  letter-spacing: 0.01em;
+}
+
+/* ── EXPLORE BUTTON ── */
+.Explore-Campaign {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 0.85rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #e8dcc8;
+  text-decoration: none;
+  border: 1px solid rgba(232, 220, 200, 0.25);
+  border-radius: 100px;
+  padding: 0.65rem 1.4rem;
+  white-space: nowrap;
+  flex-shrink: 0;
+  background: transparent;
+  cursor: pointer;
+  transition: background 0.25s ease, border-color 0.25s ease, color 0.25s ease, gap 0.25s ease;
+}
+
+.Explore-Campaign svg {
+  transition: transform 0.25s ease;
+}
+
+.Explore-Campaign:hover {
+  background: #e8dcc8;
+  border-color: #e8dcc8;
+  color: #1a1a1a;
+  gap: 0.75rem;
+}
+
+.Explore-Campaign:hover svg {
+  transform: translateX(3px);
+}
+
+.Explore-Campaign:hover svg path {
+  stroke: #1a1a1a;
 }
