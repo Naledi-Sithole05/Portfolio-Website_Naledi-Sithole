@@ -588,3 +588,104 @@ html, body {
 .Explore-Campaign:hover svg path {
   stroke: #1a1a1a;
 }
+
+/*-------------- 2D Illustrartions --------------*/
+.Introductions-2D {
+  grid-column: 1 / -1;
+  width: 100%;
+  padding: 0 2rem;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  margin: 0;
+}
+.Intro-Text{
+    
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(10rem, 10vw, 10rem);
+    line-height: 1.1;
+    text-transform: uppercase;
+    color: #e8dcc8;
+    background: transparent;
+    margin: 0;
+    margin-left: 670px;
+}
+.Intro-Img{
+    width: 40%;
+    height: auto;
+    object-fit: contain;
+    display: block;
+    margin-left: 480px;
+    margin-top: -150px;
+}
+.Introduction-2d-Container{
+   width: 100%;
+   min-height: 100vh;
+   background: #1c1c1c;
+   border-radius: 50px;
+   border: 1px solid rgba(255, 255, 255, 0.1);
+   box-sizing: border-box;
+   overflow: hidden;
+   display: flex;
+   flex-direction: column;
+   padding: 0;
+}
+.intro-2ddescription{
+    font-family: 'Jost', sans-serif;
+    font-size: 20px;
+    font-weight: 300;
+    line-height: 1.75;
+    color: rgba(240, 230, 211, 0.45);
+    margin: 0;
+    max-width: 100%;
+    text-transform: none;
+    letter-spacing: 0.01em;
+    margin-left: 200px;
+    margin-top: -280px;
+}
+.button-container {
+    display: flex;
+    gap: 20px; /* space between buttons */
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.Game-Dev-Button,
+.Digital-Art-Button {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 0.85rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #e8dcc8;
+    text-decoration: none;
+
+    border: 1px solid rgba(232, 220, 200, 0.25);
+    border-radius: 50px;
+
+    width: 500px;
+    height: 500px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: transparent;
+    cursor: pointer;
+    transition: background 0.25s ease, border-color 0.25s ease;
+}
+
+.Game-Dev-Button:hover,
+.Digital-Art-Button:hover {
+    background: rgba(232, 220, 200, 0.1);
+    border-color: rgba(232, 220, 200, 0.5);
+}
+.button-link{
+    text-decoration: none;
+    color: #e8dcc8;
+    text-align: center;
+
+}
+
+
