@@ -95,7 +95,7 @@ html, body {
   padding: 1rem;
   padding-bottom: 2rem;
   box-sizing: border-box;
-  margin-bottom: 800px;
+  margin-bottom: 1000px;
 }
 
 .hero-section.visible { opacity: 1; }
@@ -198,10 +198,10 @@ html, body {
 
 /* ── CARD 1 ── */
 .inner-Card1 {
-  grid-column: 1 / 2;
-  background: #e8dcc8;
-  color: #1a1a1a;
+   grid-column: 1 / 2;
+  grid-row: 2;          /* same row as card 3 */
   align-self: start;
+  margin-bottom: 0; 
 }
 
 .inner-Card1 p {
@@ -262,49 +262,147 @@ html, body {
   display: block;
   object-fit: contain;
   transform: rotate(6deg);
-  margin-left: -10px;
+  margin-left: 50px;
   align-self: flex-end;
 }
 
 /* ── CARD 3 ── */
 .inner-Card3 {
-  grid-column: 1 / 2;
+   grid-column: 1 / 2;
+  grid-row: 3;          /* row below card 1 */
+  align-self: start;    /* anchor to top of its row */
+  margin-top: -500px;  
+  
   background: #151515;
   border: 1px solid rgba(255, 255, 255, 0.08);
   align-self: end;
   display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  margin-top: 50px;
-  width: 100%;
+  flex-direction: column;  
+  margin-top: -500px;
+  width: 1000px;
   max-width: 500px;
   height: auto;
   border-radius: 18px;
   padding: 1.6rem 1.8rem;
   box-sizing: border-box;
+  margin-top:-500px;
+}
+.innercard3-text{
+    font-family: 'Jost', sans-serif;
+    font-size: 0.90rem;
+    line-height: 1.7;
+    text-transform: none;
+    color: rgba(240,230,211,0.55);
+    display:flex;
+    text-align: center; 
+    justify-content: center;
+    
+}
+/* ── CARD 4 ── */
+.inner-Card4 {
+  background: #151515;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 18px;
+  padding: 1.6rem 1.8rem;
+  box-sizing: border-box;
 }
 
-.innercard3-text {
-  width: 100%;
-  font-size: 0.7rem;
-  letter-spacing: 0.18em;
+.card4-heading {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(1.4rem, 2.5vw, 2rem);
+  line-height: 1.1;
   text-transform: uppercase;
-  color: rgba(240, 230, 211, 0.666);
-  background: transparent;
+  color: #e8dcc8;
+  margin: 0 0 1.2rem 0;
+}
+
+.edu-timeline {
+  display: flex;
+  flex-direction: column;
+}
+
+.edu-item {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  padding-bottom: 1.4rem;
+}
+
+.edu-item:last-child {
+  padding-bottom: 0;
+}
+
+.edu-logo-wrap {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: #1e1e1e;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.edu-logo {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+}
+
+.edu-name {
   font-family: 'Jost', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #e8dcc8;
   margin: 0;
 }
 
-/* ── LOGO IMAGES ── */
+.edu-date {
+  font-family: 'Jost', sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(240, 230, 211, 0.45);
+  margin: 2px 0 0;
+}
+
+.edu-detail {
+  font-family: 'Jost', sans-serif;
+  font-size: 0.78rem;
+  color: rgba(240, 230, 211, 0.6);
+  line-height: 1.5;
+  margin: 6px 0 0;
+}
+
+.section-divider {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.08);
+  margin: 1.4rem 0;
+}
+
+/* Wrap the images in a row container */
+.logo-row {
+  display: flex;
+  flex-wrap: nowrap;       
+  align-items: center;
+  gap: 0;                  
+  margin-top: 4px;
+}
+
 .logo-Img {
+  flex-shrink: 0;         
   width: 60px;
   height: 60px;
   object-fit: contain;
-  margin-right: 12px;
-  margin-top: 4px;
+  margin-right: 12px;      
   transition: opacity 0.2s ease;
 }
 
+.logo-Img:last-child {
+  margin-right: 0;         
+}
 .logo-Img:hover { opacity: 1; }
 
 /* ── EXPLORE TRIGGER ROW ── */

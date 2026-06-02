@@ -1,12 +1,4 @@
-/* ── SectionsOverlay.js ──────────────────────────────────────────
-   Builds a full-screen section-picker overlay on page load.
-   Requires each <section> to have:
-     data-section-title="My Section"
-     data-overlay-img="/path/to/title-image.png"   (optional)
 
-   The overlay only opens when 2+ opted-in sections exist.
-   Single-section pages load normally with no overlay and no scroll lock.
-   ──────────────────────────────────────────────────────────────── */
 
 (function () {
   'use strict';
@@ -22,9 +14,14 @@
     document.body.style.overflow = '';
   }
 
-  /* Safety net: always clear any stale scroll lock on page load.
-     Runs on 'load' (after DOMContentLoaded) so it fires last. */
-  window.addEventListener('load', unlockScroll);
+  /* Safety net: clear any stale scroll lock on page load,
+     but only if the overlay is already closed or not present. */
+  window.addEventListener('load', () => {
+    const overlay = document.getElementById('sections-overlay');
+    if (!overlay || overlay.classList.contains('overlay-hidden')) {
+      unlockScroll();
+    }
+  });
 
   document.addEventListener('DOMContentLoaded', () => {
 
@@ -108,6 +105,7 @@
         if (!target) return;
 
         hideOverlay();
+        unlockScroll(); // explicit guarantee in case CSS transition delays the unlock
 
         setTimeout(() => {
           const navEl  = document.querySelector('nav');
