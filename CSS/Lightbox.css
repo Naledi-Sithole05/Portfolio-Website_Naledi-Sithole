@@ -172,3 +172,46 @@
   width: 18px;
   height: 18px;
 }
+
+
+
+/* ── SPEC PROJECT IMAGES GRID ── */
+.Spec-Project-imgs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.2rem;
+  padding: 2rem 2.5rem;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.Spec-Project-imgs img,
+.Spec-Project-imgs iframe {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border-radius: 14px;
+  object-fit: cover;
+  border: none;
+  display: block;
+  background: #1a1a1a; /* fallback while loading */
+}
+
+.Spec-Project-imgs iframe {
+  aspect-ratio: 16 / 9; /* widescreen for videos */
+}
+
+.Spec-Project-imgs img,
+.Spec-Project-imgs video,
+.Spec-Project-imgs iframe {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border-radius: 14px;
+  object-fit: cover;
+  border: none;
+  display: block;
+  background: #1a1a1a;
+}
+
+.Spec-Project-imgs video {
+  aspect-ratio: 16 / 9;
+}
