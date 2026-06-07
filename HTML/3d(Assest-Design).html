@@ -9,78 +9,94 @@
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
   <script src="/JS/navigation.js" defer></script>
   <script src="/JS/SectionsOverlay.js" defer></script>
-   <link rel="stylesheet" href="/CSS/Lightbox.css">
+  <link rel="stylesheet" href="/CSS/Lightbox.css">
+  <link rel="stylesheet" href="/CSS/project-layout.css">
   <script src="/JS/Lightbox.js" defer></script>
 </head>
 <body>
 
-    <!-- ── SECTION 1: Brand Recall ─────────────────────────────── -->
-    <section
-        class="project-section"
-        data-section-title="Brand Recall"
-        data-overlay-img="/IMGS/Design-Thinking/brand recall image.png"
-    >
-        <img
-            class="section-title-img Brand-Recall-Text-img"
-            src="/IMGS/Design-Thinking/brand recall image.png"
-            alt="Brand Recall"
-        >
-        <div class="bread-Crumbing"></div>
+  <!-- ── SECTION 1: Brand Recall ─────────────────────────────── -->
+  <section
+    class="project-section"
+    data-section-title="Brand Recall"
+    data-overlay-img="/IMGS/Design-Thinking/brand recall image.png"
+  >
+    <img class="section-title-img Brand-Recall-Text-img" src="/IMGS/Design-Thinking/brand recall image.png" alt="Brand Recall">
 
-        <!-- ↓ Brand Recall content goes here ↓ -->
-         <div class="Project-Description">
-          <p>
-            This is a project I worked on that focused on brand recall and recognition. The project involved creating a series of visual assets, including logos, color schemes, and typography, that were designed to be easily recognizable and memorable to consumers.
+    <div class="project-body">
+      <p class="Project-Description">
+        This project focused on brand recall and recognition. It involved creating a series of visual
+        assets, logos, colour schemes, and typography, designed to be easily recognisable and
+        memorable. The goal was to craft a strong brand identity that stands out in a crowded market
+        and builds a loyal customer base, with design elements that reflect the company's values while
+        remaining visually striking.
+      </p>
 
-            The goal of the project was to create a strong brand identity that would help the company stand out in a crowded market and build a loyal customer base. The design elements were carefully chosen to reflect the company's values and personality, while also being visually appealing and easy to remember.
+      <!-- Brand Recall: 2 images + 1 video → 3 cells, one per column -->
+      <div class="project-img-grid">
+        <div class="lb-gallery">
+          <img src="/IMGS/BrandRecall_imgs/Brand Recall Media (2).png" alt="Brand Recall Media">
+        </div>
+        <div class="project-video-wrap" style="margin:0;">
+          <video autoplay muted loop playsinline>
+            <source src="/IMGS/Animations/Brand-Recall AD.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="lb-gallery">
+          <img src="/IMGS/BrandRecall_imgs/LOGO.png" alt="Logo">
+        </div>
+      </div>
+    </div>
+  </section>
 
-          </p>  </div>
 
-          <div class="Brand-Recall-imgs">
-            <img src="/IMGS/BrandRecall_imgs/Brand Recall Media (2).png">
-            <iframe src="/IMGS/Animations/0001-1211.mp4"></iframe>
-            <img src="/IMGS/BrandRecall_imgs/LOGO.png">
-          </div>
+  <!-- ── SECTION 2: Spec Projects ────────────────────────────── -->
+  <section
+    class="project-section"
+    data-section-title="Spec Projects"
+    data-overlay-img="/IMGS/Design-Thinking/Spec Projects .png"
+  >
+    <img class="section-title-img Spec-Project-Text-img" src="/IMGS/Design-Thinking/Spec Projects .png" alt="Spec Projects">
 
-    </section>
+    <div class="project-body">
+      <p class="Project-Description">
+        A collection of spec projects created for practice and to showcase my skills across graphic
+        design, branding, and UI design. Each piece demonstrates creativity, technical ability, and
+        innovative problem-solving across a range of disciplines.
+      </p>
 
-    <!-- ── SECTION 2: Spec Projects ────────────────────────────── -->
-    <section
-        class="project-section"
-        data-section-title="Spec Projects"
-        data-overlay-img="/IMGS/Design-Thinking/Spec Projects .png"
-    >
-        <img
-            class="section-title-img Spec-Project-Text-img"
-            src="/IMGS/Design-Thinking/Spec Projects .png"
-            alt="Spec Projects"
-        >
-        <div class="bread-Crumbing"></div>
-
-            <div class="Project-Description">
-            <p>
-                This is a collection of spec projects that I have worked on, which are design projects that are created for practice or to showcase my skills, rather than for a specific client or company. These projects allow me to explore different design styles and techniques, and to experiment with new ideas and concepts.
-    
-                The spec projects in this collection cover a wide range of design disciplines, including graphic design, branding, and user interface design. Each project is designed to demonstrate my creativity, technical skills, and ability to solve design problems in innovative ways.
-    
-            </p>  </div>
-    
-            <div class="Spec-Project-imgs">
-  <video src="/IMGS/Animations/0001-1000.mp4" controls muted loop playsinline></video>
-  <video src="/IMGS/Animations/Untitled video - Made with Clipchamp.mp4" controls muted loop playsinline></video>
-  <img src="/IMGS/AssetDesign/0001.png" alt="Asset Design 1">
-  <img src="/IMGS/AssetDesign/apple watch .png" alt="Apple Watch">
-  <img src="/IMGS/AssetDesign/asset design.png" alt="Asset Design">
-  <img src="/IMGS/AssetDesign/dark and lovely.png" alt="Dark and Lovely">
-  <img src="/IMGS/AssetDesign/kitchen asset design.png" alt="Kitchen Asset Design">
-  <img src="/IMGS/AssetDesign/tree.png" alt="Tree">
-  <img src="/IMGS/AssetDesign/The ordinary .png">
-  <img src="/IMGS/AssetDesign/The ordinary spec project .png">
-  <img src="/IMGS/AssetDesign/The ordinary_inspo.png">
-  <img src="/IMGS/AssetDesign/TheOrdinary-inspo.png">
-</div>
-
-    </section>
+      <!-- Videos sit outside lb-gallery (can't lightbox video) -->
+      <div class="project-img-grid">
+        <div class="project-video-wrap" style="margin:0;">
+          <video autoplay muted loop playsinline>
+            <source src="/IMGS/Animations/The ordinay AD.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="project-video-wrap" style="margin:0;">
+          <video autoplay muted loop playsinline>
+            <source src="/IMGS/Animations/Dark and lovely-AD.mp4" type="video/mp4">
+          </video>
+        </div>
+        <!-- Stack 1 -->
+        <div class="lb-gallery">
+          
+          <img src="/IMGS/AssetDesign/dark and lovely.png" alt="Dark and Lovely">
+          <img src="/IMGS/AssetDesign/dark and lovley__1.png" alt="Dark and lovely">
+          <img src="/IMGS/AssetDesign/dark and lovley__3.png" alt="Dark and lovely">
+        </div>
+        <!-- Stack 2 -->
+        <div class="lb-gallery">
+          <img src="/IMGS/AssetDesign/The ordinary .png"        alt="The Ordinary">
+        </div>
+        <!-- Stack 3 -->
+        <div class="lb-gallery">
+          <img src="/IMGS/AssetDesign/The ordinary spec project .png" alt="The Ordinary Spec Project">
+          <img src="/IMGS/AssetDesign/The ordinary_inspo.png"         alt="The Ordinary Inspo">
+          <img src="/IMGS/AssetDesign/TheOrdinary-inspo.png"          alt="The Ordinary Inspo 2">
+        </div>
+      </div>
+    </div>
+  </section>
 
 </body>
 </html>

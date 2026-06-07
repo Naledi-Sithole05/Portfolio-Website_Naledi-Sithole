@@ -10,6 +10,7 @@
   <script src="/JS/navigation.js" defer></script>
   <script src="/JS/SectionsOverlay.js" defer></script>
   <link rel="stylesheet" href="/CSS/Lightbox.css">
+  <link rel="stylesheet" href="/CSS/project-layout.css">
   <script src="/JS/Lightbox.js" defer></script>
 </head>
 <body>
@@ -20,14 +21,15 @@
     data-section-title="Skyylar"
     data-overlay-img="/IMGS/Design-Thinking/Skyylar.png"
   >
-    <img
-      class="section-title-img"
-      src="/IMGS/Design-Thinking/Skyylar.png"
-      alt="Skyylar"
-    >
-    <div class="bread-Crumbing"></div>
-    <!-- ↓ Skyylar content ↓ -->
-     <iframe src="/IMGS/Animations/skylar playthrough.mp4"></iframe>
+    <img class="section-title-img" src="/IMGS/Design-Thinking/Skyylar.png" alt="Skyylar">
+
+    <div class="project-body">
+      <div class="project-video-wrap">
+        <video autoplay muted loop playsinline>
+          <source src="/IMGS/Animations/skylar playthrough.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
   </section>
 
 
@@ -37,24 +39,22 @@
     data-section-title="Shot Clock"
     data-overlay-img="/IMGS/Design-Thinking/shot clock.png"
   >
-    <img
-      class="section-title-img"
-      src="/IMGS/Design-Thinking/shot clock.png"
-      alt="Shot Clock"
-    >
-    <div class="Project-Description">
-      <p>
-       This is a game that I recently developed, inspired by basketball. There was less emphasis on the design aspect of the project, as most of the user interface elements were sourced from the Unity Asset Store.
+    <img class="section-title-img" src="/IMGS/Design-Thinking/shot clock.png" alt="Shot Clock">
 
-As a result, my primary focus was on the development side of the game, including implementing gameplay mechanics, functionality, and overall game systems.
-
- 
+    <div class="project-body">
+      <p class="project-desc">
+        This is a game that I recently developed, inspired by basketball. There was less emphasis on
+        the design aspect of the project, as most of the user interface elements were sourced from
+        the Unity Asset Store. As a result, my primary focus was on the development side of the game,
+        including implementing gameplay mechanics, functionality, and overall game systems.
       </p>
+
+      <div class="project-video-wrap">
+        <video autoplay muted loop playsinline>
+          <source src="/IMGS/Animations/shot clock-vid.mp4" type="video/mp4">
+        </video>
+      </div>
     </div>
-    <div class="bread-Crumbing"></div>
-    <iframe src="/IMGS/Animations/shot clock-vid.mp4"></iframe>
-    <!-- ↓ Shot Clock content ↓ -->
-     
   </section>
 
 
@@ -64,41 +64,47 @@ As a result, my primary focus was on the development side of the game, including
     data-section-title="Sixth Sense"
     data-overlay-img="/IMGS/Design-Thinking/sixth sense.png"
   >
-    <img
-      class="section-title-img"
-      src="/IMGS/Design-Thinking/sixth sense.png"
-      alt="Sixth Sense"
-    >
-    <div class="bread-Crumbing"></div>
-    <div class="Project-Description">
-      <p>
-        This is the first 2D game that I developed and designed. My design work involved creating and illustrating the entire apartment environment, along with all the objects and components within it.
+    <img class="section-title-img" src="/IMGS/Design-Thinking/sixth sense.png" alt="Sixth Sense">
 
-I also designed the characters and developed the game's concept, which was inspired by the TV show *Psych*. The game follows a private investigator with a sixth sense who uses their abilities to solve cases.
-
-Finally, I contributed to the design of the game's user interface, creating several of its visual elements.
- 
+    <div class="project-body">
+      <p class="project-desc">
+        This is the first 2D game that I developed and designed. My design work involved creating and
+        illustrating the entire apartment environment, along with all the objects and components within it.
+        I also designed the characters and developed the game's concept, which was inspired by the TV show
+        <em>Psych</em>. The game follows a private investigator with a sixth sense who uses their abilities
+        to solve cases. Finally, I contributed to the design of the game's user interface, creating several
+        of its visual elements.
       </p>
+
+      <div class="project-video-wrap">
+        <video autoplay muted loop playsinline>
+          <source src="/IMGS/Animations/The sixthsense vid.mp4" type="video/mp4">
+        </video>
+      </div>
+
+      <!-- 3-column grid: each lb-gallery is one cell, holds a stack of images -->
+      <div class="project-img-grid">
+        <div class="lb-gallery">
+          <img src="/IMGS/Ui design/APARTMENTS.png"             alt="Apartments">
+          <img src="/IMGS/Ui design/back and continue.png"       alt="Back and Continue">
+          <img src="/IMGS/Ui design/cancel .png"                 alt="Cancel">
+        </div>
+        <div class="lb-gallery">
+          <img src="/IMGS/Ui design/PLAY BUTTON__.png"           alt="Play Button">
+          <img src="/IMGS/Ui design/FINAL SELECTION BUTTONS.png" alt="Final Selection Buttons">
+          <img src="/IMGS/Ui design/MUSIC OFF.png"               alt="Music Off">
+        </div>
+        <div class="lb-gallery">
+          <img src="/IMGS/Ui design/Menu (1).png"                alt="Main Menu">
+          <img src="/IMGS/Ui design/LEVEL 1.png"                 alt="Level 1">
+          <img src="/IMGS/Ui design/katlego.png"                 alt="Katlego Character">
+        </div>
+      </div>
+
+      <div class="link-to-github">
+        <a href="https://github.com/takthedreamerr/The-Sixth-Sense">View on GitHub</a>
+      </div>
     </div>
-
-
-    <div class="Sixth-Sense-imgs">
-      <iframe src="/IMGS/Animations/The sixthsense vid.mp4"></iframe>
-    <!-- ↓ Sixth Sense content ↓ -->
-     
-     <div class="Process-imgs">
-      <img src="/IMGS/Ui design/APARTMENTS.png" alt="apartments">
-      <img src="/IMGS/Ui design/back and continue.png" alt="back and continue buttons"> 
-      <img src="/IMGS/Ui design/cancel .png" alt="cancel"> 
-      <img src="/IMGS/Ui design/PLAY BUTTON__.png" alt="play button">
-      <img src="/IMGS/Ui design/FINAL SELECTION BUTTONS.png" alt="final selection buttons">
-      <img src="/IMGS/Ui design/MUSIC OFF.png" alt="music-off">
-      <img src="/IMGS/Ui design/Menu (1).png" alt="main-menu-img">
-      <img src="/IMGS/Ui design/LEVEL 1.png" alt="level-1">
-      <img src="/IMGS/Ui design/katlego.png" alt="katlego-character">
-     </div>
-
-     <div class="link-to-github"><a href="https://github.com/takthedreamerr/The-Sixth-Sense"></a></div>
   </section>
 
 </body>
