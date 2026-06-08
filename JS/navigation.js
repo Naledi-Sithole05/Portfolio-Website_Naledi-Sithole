@@ -13,7 +13,7 @@ const navLinks = [
 const currentPage = window.location.pathname.split('/').pop() || 'index.html';
 const isHomePage  = currentPage === 'index.html' || currentPage === '';
 
-// ── breadcrumb map  (page → [{label, href}])  ─────────────────────
+// ── breadcrumb map  (page  [{label, href}])  ─────────────────────
 // href: null = current page (no link), '#overlay' = re-open overlay
 const breadcrumbMap = {
   '2D-Illustrations.html': [

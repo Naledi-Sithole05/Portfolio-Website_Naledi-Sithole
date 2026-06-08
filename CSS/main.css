@@ -199,7 +199,7 @@ html, body {
 /* ── CARD 1 ── */
 .inner-Card1 {
    grid-column: 1 / 2;
-  grid-row: 2;          /* same row as card 3 */
+  grid-row: 2;          
   align-self: start;
   margin-bottom: 0; 
 }
@@ -269,8 +269,8 @@ html, body {
 /* ── CARD 3 ── */
 .inner-Card3 {
    grid-column: 1 / 2;
-  grid-row: 3;          /* row below card 1 */
-  align-self: start;    /* anchor to top of its row */
+  grid-row: 3;          
+  align-self: start;    
   margin-top: -500px;  
   
   background: #151515;
@@ -382,7 +382,7 @@ html, body {
   margin: 1.4rem 0;
 }
 
-/* Wrap the images in a row container */
+
 .logo-row {
   display: flex;
   flex-wrap: nowrap;       
@@ -405,8 +405,7 @@ html, body {
 }
 .logo-Img:hover { opacity: 1; }
 
-/* ── EXPLORE TRIGGER ROW ── */
-/* Spans all 3 columns, sits as the last row of the grid */
+
 .explore-trigger-row {
   grid-column: 1 / -1;
   display: flex;
@@ -579,7 +578,7 @@ html, body {
   
 }
 
-/* ── CAMPAIGN IMAGES ── */
+/* ------- CAMPAIGN IMAGES ------- */
 .Adidas-Campaign-img,
 .Adidas-Campaign-img-1,
 .Adidas-Campaign-img-2,
@@ -624,7 +623,7 @@ html, body {
   transform: scale(1.01);
 }
 
-/* ── FOOTER ROW — description + button ── */
+/* ------ FOOTER ROW — description + button ------ */
 .campaign-footer {
   width: 100%;
   max-width: 700px;
@@ -647,7 +646,7 @@ html, body {
   letter-spacing: 0.01em;
 }
 
-/* ── EXPLORE CAMPAIGN BUTTON ── */
+/* ------EXPLORE CAMPAIGN BUTTON ----- */
 .Explore-Campaign {
   display: inline-flex;
   align-items: center;
@@ -745,7 +744,7 @@ html, body {
 }
 .button-container {
     display: flex;
-    gap: 20px; /* space between buttons */
+    gap: 20px; 
     justify-content: center;
     margin-top: 20px;
 }
@@ -844,4 +843,58 @@ html, body {
     margin-top: -120px;
     align-self: center; 
 }
+.About-Introduction-img{
+  align-self: center; 
+  display:flex;
+  margin-left:500px;
 
+}
+
+.About-page-text{
+  font-family: 'Jost';
+  color:#e8dcc8;
+  font-size:20px;
+  margin-left:50px;
+  margin-right:50px;
+  margin-top: -100px;
+  margin-bottom:50px;
+}
+
+.ConnectWithMe {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 16px;
+}
+
+.connectwithmeimage {
+  height: 100px;
+  width: 100px;
+  object-fit: contain;
+  display: block;
+  transition: opacity 0.2s ease;
+  margin-left:650px;
+  margin-right: -600px;
+}
+
+.connectwithmeimage:hover {
+  opacity: 0.1;
+}
+
+.connectTitle {
+  font-family: 'Jost';
+  height: 300px;
+  display: flex;
+  align-items: center;
+  color: #f0e6d3;
+  margin-left: 650px;
+}
+
+.connectTitle {
+  display: flex;
+  justify-content: center;   
+  align-items: center;
+  height: 300px;
+  color: #f0e6d3;
+  
+}
