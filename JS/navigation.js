@@ -1,48 +1,55 @@
-
-
 const navLinks = [
-  { href: '/index.html',                   label: 'Home'             },
-  { href: '/HTML/2D-Illustrations.html',   label: '2D Illustrations' },
-  { href: '/HTML/3D-Illustrations.html',   label: '3D Illustrations' },
-  { href: '/HTML/About.html',              label: 'About'            },
+  { href: '../index.html',                      label: 'Home'             },
+  { href: '../HTML/2D-Illustrations.html',      label: '2D Illustrations' },
+  { href: '../HTML/3D-Illustrations.html',      label: '3D Illustrations' },
+  { href: '../HTML/About.html',                 label: 'About'            },
 ];
 
 const currentPage = window.location.pathname.split('/').pop() || 'index.html';
 const isHomePage  = currentPage === 'index.html' || currentPage === '';
 
+// Home page nav links point directly to root-relative siblings
+const homeNavLinks = [
+  { href: 'index.html',                   label: 'Home'             },
+  { href: 'HTML/2D-Illustrations.html',   label: '2D Illustrations' },
+  { href: 'HTML/3D-Illustrations.html',   label: '3D Illustrations' },
+  { href: 'HTML/About.html',              label: 'About'            },
+];
+
+const activeLinks = isHomePage ? homeNavLinks : navLinks;
+
 const breadcrumbMap = {
   '2D-Illustrations.html': [
-    { label: 'Home', href: '/index.html' },
+    { label: 'Home',             href: '../index.html' },
     { label: '2D Illustrations', href: null },
   ],
   '3D-Illustrations.html': [
-    { label: 'Home', href: '/index.html' },
+    { label: 'Home',             href: '../index.html' },
     { label: '3D Illustrations', href: null },
   ],
   '2d(Digital Art).html': [
-    { label: 'Home',             href: '/index.html' },
-    { label: '2D Illustrations', href: '/HTML/2D-Illustrations.html' },
+    { label: 'Home',             href: '../index.html' },
+    { label: '2D Illustrations', href: '../HTML/2D-Illustrations.html' },
     { label: 'Digital Art',      href: null },
   ],
   '2d(GameDev).html': [
-    { label: 'Home',             href: '/index.html' },
-    { label: '2D Illustrations', href: '/HTML/2D-Illustrations.html' },
+    { label: 'Home',             href: '../index.html' },
+    { label: '2D Illustrations', href: '../HTML/2D-Illustrations.html' },
     { label: 'Game Development', href: null },
   ],
   '3d(Assest-Design).html': [
-    { label: 'Home',             href: '/index.html' },
-    { label: '3D Illustrations', href: '/HTML/3D-Illustrations.html' },
+    { label: 'Home',             href: '../index.html' },
+    { label: '3D Illustrations', href: '../HTML/3D-Illustrations.html' },
     { label: 'Asset Design',     href: null },
   ],
   '3d(Game-dev).html': [
-    { label: 'Home',             href: '/index.html' },
-    { label: '3D Illustrations', href: '/HTML/3D-Illustrations.html' },
+    { label: 'Home',             href: '../index.html' },
+    { label: '3D Illustrations', href: '../HTML/3D-Illustrations.html' },
     { label: 'Game Development', href: null },
   ],
 };
 
-
-const listItems = navLinks
+const listItems = activeLinks
   .map(link => {
     const isActive = currentPage === link.href.split('/').pop() ? 'class="active"' : '';
     return `<li><a href="${link.href}" ${isActive}>${link.label}</a></li>`;
@@ -53,10 +60,13 @@ const navStyle = isHomePage
   ? 'opacity:0;pointer-events:none;transition:opacity 0.5s ease;'
   : '';
 
+const logoHref  = isHomePage ? 'index.html'    : '../index.html';
+const logoImg   = isHomePage ? 'IMGS/Site_logo/0001.png' : '../IMGS/Site_logo/0001.png';
+
 const navbar = `
   <nav id="main-nav" style="${navStyle}">
-    <a class="nav-logo" href="/index.html">
-      <img src="/IMGS/Site_logo/0001.png" alt="site logo" />
+    <a class="nav-logo" href="${logoHref}">
+      <img src="${logoImg}" alt="site logo" />
       <span>Naledi Sithole</span>
     </a>
     <ul>${listItems}</ul>
@@ -98,7 +108,6 @@ if (!isHomePage && crumbs) {
   const nav = document.getElementById('main-nav');
   nav.insertAdjacentHTML('afterend', breadcrumb);
 
-
   window.addEventListener('DOMContentLoaded', () => {
     const bc        = document.getElementById('breadcrumb');
     const backBtnEl = document.getElementById('bc-back-btn');
@@ -110,7 +119,7 @@ if (!isHomePage && crumbs) {
           overlay.classList.remove('overlay-hidden');
           window.scrollTo({ top: 0, behavior: 'smooth' });
         } else {
-          const parent = crumbs.length >= 2 ? crumbs[crumbs.length - 2].href : '/index.html';
+          const parent = crumbs.length >= 2 ? crumbs[crumbs.length - 2].href : '../index.html';
           if (parent) window.location.href = parent;
         }
       });
@@ -131,8 +140,7 @@ if (!isHomePage && crumbs) {
 
     sections.forEach(s => observer.observe(s));
   });
-} 
-
+}
 
 
 
