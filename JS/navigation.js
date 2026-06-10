@@ -131,7 +131,7 @@ if (!isHomePage && crumbs) {
 
     sections.forEach(s => observer.observe(s));
   });
-}
+} 
 
 
 

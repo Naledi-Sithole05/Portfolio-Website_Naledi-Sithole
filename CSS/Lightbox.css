@@ -37,7 +37,7 @@
   display: block;
   pointer-events: none; /* clicks handled by card */
 }
-
+ 
 /* ── LIGHTBOX OVERLAY ── */
 #lb-overlay {
   position: fixed;

@@ -6,7 +6,7 @@ const CONFIG = {
   heroDelay: 60,
   reverseOnScrollUp: true,
   touchMultiplier: 1.8,
-};
+}; 
 
 const TOTAL_FRAMES = CONFIG.lastFrame - CONFIG.firstFrame + 1;
 const ANIM_SCROLL  = TOTAL_FRAMES * CONFIG.pixelsPerFrame;
