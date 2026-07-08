@@ -1,9 +1,7 @@
-/* ── Import fonts ─────────────────────────────── */
+
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&family=Jost:wght@300;400;500&display=swap');
 
-/* ════════════════════════════════════════════════
-   NAV BAR  —  original layout preserved exactly
-   ════════════════════════════════════════════════ */
+
 nav {
   background:  #151515;
   border-bottom: 0.5px solid #151515;
@@ -68,10 +66,7 @@ nav ul li a.active {
   transform: scale(1.08);
 }
 
-/* ════════════════════════════════════════════════
-   BREADCRUMB BAR
-   Sits below the sticky nav.
-   ════════════════════════════════════════════════ */
+
 :root {
   --nav-height: 64px;
   --bc-height:  42px;
@@ -88,7 +83,7 @@ nav ul li a.active {
 
 .breadcrumb {
   position: sticky;
-  top: var(--nav-height);          /* sticks just under the nav */
+  top: var(--nav-height);          
   z-index: 99;
   height: var(--bc-height);
   display: flex;
@@ -180,10 +175,7 @@ nav ul li a.active {
   transform: translateX(-2px);
 }
 
-/* ════════════════════════════════════════════════
-   SECTIONS OVERLAY
-   Full-screen landing that hides sections on load.
-   ════════════════════════════════════════════════ */
+
 #sections-overlay {
   position: fixed;
   inset: 0;
@@ -350,12 +342,7 @@ nav ul li a.active {
   background: rgba(232,220,200,0.06);
 }
 
-/* ════════════════════════════════════════════════
-   SECTION TITLE IMAGES
-   Matches the "Explore" pulse on the home page.
-   Add class="section-title-img" to the <img> at
-   the top of each project section.
-   ════════════════════════════════════════════════ */
+
 .section-title-img {
   display: block;
   width: clamp(160px, 28vw, 360px);
@@ -371,9 +358,7 @@ nav ul li a.active {
   filter: drop-shadow(0 0 28px rgba(240,230,211,0.3));
 }
 
-/* ════════════════════════════════════════════════
-   RESPONSIVE
-   ════════════════════════════════════════════════ */
+
 @media (max-width: 640px) {
   nav { padding: 0 1rem; }
   .breadcrumb { padding: 0 1rem; }

@@ -1,16 +1,15 @@
-/* ── ROOT ── */
 html, body {
   background: #0e0e0e;
   margin: 0;
   padding: 0;
 }
 
-/* ── FRAME STORE ── */
+
 #frame-store {
   display: none;
 }
 
-/* ── ANIMATION STAGE ── */
+
 #anim-stage {
   position: fixed;
   inset: 0;
@@ -34,7 +33,7 @@ html, body {
   object-fit: cover;
 }
 
-/* ── SCROLL HINT ── */
+/* SCROLL HINT*/
 #scroll-hint {
   position: absolute;
   bottom: 2.5rem;
@@ -66,10 +65,10 @@ html, body {
 
 @keyframes hintPulse {
   0%, 100% { opacity: 0.3; transform: scaleY(1); }
-  50%       { opacity: 1;   transform: scaleY(1.2); }
+  50%      { opacity: 1;   transform: scaleY(1.2); }
 }
 
-/* ── PROGRESS BAR ── */
+/*    PROGRESS BAR */
 #anim-progress {
   position: absolute;
   bottom: 0;
@@ -86,7 +85,8 @@ html, body {
   transition: width 0.1s linear;
 }
 
-/* ── HERO SECTION ── */
+/* 
+   HERO SECTION */
 .hero-section {
   opacity: 0;
   transition: opacity 0.4s ease 0.2s;
@@ -105,7 +105,7 @@ html, body {
   opacity: 1;
 }
 
-/* ── MAIN CONTAINER ── */
+/* MAIN CONTAINER*/
 #main-Container {
   width: 100%;
   min-height: auto;
@@ -116,7 +116,7 @@ html, body {
   overflow: visible;
 }
 
-/* ── HOME GRID ── */
+/* HOME GRID  (single source of truth — was duplicated)*/
 #home-Container {
   position: relative;
   width: 100%;
@@ -130,7 +130,27 @@ html, body {
   box-sizing: border-box;
 }
 
-/* ── OPENING HEADING WRAPPER ── */
+@media (max-width: 900px) {
+  #home-Container {
+    grid-template-columns: 1fr 1fr;
+    padding: 2rem 1.5rem 2.5rem;
+  }
+  .inner-Card1,
+  .card2-wrapper,
+  .inner-Card3,
+  .welcome-card {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 560px) {
+  #home-Container {
+    grid-template-columns: 1fr;
+    padding: 1.5rem 1.2rem 2rem;
+  }
+}
+
+/* OPENING HEADING WRAPPER */
 .opening-Pagetext {
   grid-column: 1 / -1;
   width: 100%;
@@ -150,22 +170,23 @@ html, body {
 
 .opening-Pagetext-img {
   width: 100%;
+  max-width: 480px;
   height: auto;
   object-fit: contain;
   display: block;
-  margin-left: 100px;
+  margin: 0 auto;
 }
 
 .opening-Pagetext-sub {
   font-family: 'Bebas Neue', sans-serif;
-  font-size: clamp(3rem, 13.5vw, 14rem);
+  font-size: clamp(2.4rem, 13.5vw, 14rem);
   font-weight: 300;
   color: #f0e6d3;
   background: transparent;
   text-transform: uppercase;
   line-height: 0.9;
   letter-spacing: 0.05em;
-  white-space: nowrap;
+  white-space: normal;
   margin: 0;
   padding: 0;
   width: 100%;
@@ -185,7 +206,7 @@ html, body {
   }
 }
 
-/* ── CARDS SHARED ── */
+/* CARDS SHARED */
 .inner-Card1,
 .inner-Card2,
 .inner-Card3 {
@@ -196,12 +217,12 @@ html, body {
   gap: 0.8rem;
 }
 
-/* ── CARD 1 ── */
+/*  CARD 1 */
 .inner-Card1 {
-   grid-column: 1 / 2;
-  grid-row: 2;          
+  grid-column: 1 / 2;
+  grid-row: 2;
   align-self: start;
-  margin-bottom: 0; 
+  margin-bottom: 0;
 }
 
 .inner-Card1 p {
@@ -214,7 +235,7 @@ html, body {
   margin: 0;
 }
 
-/* ── CARD 2 WRAPPER — holds card + portrait side by side ── */
+/*  CARD 2 WRAPPER — holds card + portrait side by side */
 .card2-wrapper {
   grid-column: 3 / 4;
   display: flex;
@@ -222,14 +243,16 @@ html, body {
   gap: 0;
   position: relative;
   align-self: start;
+  flex-wrap: wrap;
 }
 
 .card2-wrapper .inner-Card2 {
   grid-column: unset;
   flex: 1;
+  min-width: 200px;
 }
 
-/* ── CARD 2 ── */
+/*  CARD 2 */
 .inner-Card2 {
   grid-column: 3 / 4;
   background: transparent;
@@ -248,57 +271,58 @@ html, body {
   margin: 0;
 }
 
-/* ── WELCOME CARD — bottom right ── */
+/*  WELCOME CARD — bottom right */
 .welcome-card {
   grid-column: 3 / 4;
   align-self: end;
   margin-top: 0;
 }
 
-/* ── PORTRAIT IMAGE ── */
+/*  PORTRAIT IMAGE */
 .Intro-img {
-  width: 300px;
+  width: clamp(180px, 22vw, 300px);
   height: auto;
   display: block;
   object-fit: contain;
   transform: rotate(6deg);
-  margin-left: 50px;
+  margin: 0 0 0 auto;
   align-self: flex-end;
 }
 
-/* ── CARD 3 ── */
+/*  CARD 3  */
 .inner-Card3 {
-   grid-column: 1 / 2;
-  grid-row: 3;          
-  align-self: start;    
-  margin-top: -500px;  
-  
+  grid-row: 3;
+  align-self: start;
   background: #151515;
   border: 1px solid rgba(255, 255, 255, 0.08);
-  align-self: end;
   display: flex;
-  flex-direction: column;  
-  margin-top: -500px;
-  width: 1000px;
+  flex-direction: column;
+  width: 100%;
   max-width: 500px;
   height: auto;
   border-radius: 18px;
   padding: 1.6rem 1.8rem;
   box-sizing: border-box;
-  margin-top:-500px;
 }
-.innercard3-text{
-    font-family: 'Jost', sans-serif;
-    font-size: 0.90rem;
-    line-height: 1.7;
-    text-transform: none;
-    color: rgba(240,230,211,0.55);
-    display:flex;
-    text-align: center; 
-    justify-content: center;
-    
+
+@media (max-width: 900px) {
+  .inner-Card3 {
+    max-width: none;
+  }
 }
-/* ── CARD 4 ── */
+
+.innercard3-text {
+  font-family: 'Jost', sans-serif;
+  font-size: 0.9rem;
+  line-height: 1.7;
+  text-transform: none;
+  color: rgba(240, 230, 211, 0.55);
+  display: flex;
+  text-align: center;
+  justify-content: center;
+}
+
+/*  CARD 4  */
 .inner-Card4 {
   background: #151515;
   border: 1px solid rgba(255, 255, 255, 0.08);
@@ -382,30 +406,30 @@ html, body {
   margin: 1.4rem 0;
 }
 
-
+/* LOGO ROW */
 .logo-row {
   display: flex;
-  flex-wrap: nowrap;       
+  flex-wrap: wrap;
   align-items: center;
-  gap: 0;                  
+  gap: 0;
   margin-top: 4px;
 }
 
 .logo-Img {
-  flex-shrink: 0;         
+  flex-shrink: 0;
   width: 60px;
   height: 60px;
   object-fit: contain;
-  margin-right: 12px;      
+  margin-right: 12px;
   transition: opacity 0.2s ease;
 }
 
 .logo-Img:last-child {
-  margin-right: 0;         
+  margin-right: 0;
 }
 .logo-Img:hover { opacity: 1; }
 
-
+/* EXPLORE BUTTON */
 .explore-trigger-row {
   grid-column: 1 / -1;
   display: flex;
@@ -414,7 +438,6 @@ html, body {
   padding: 2rem 0 1rem 0;
 }
 
-/* ── EXPLORE BUTTON ── */
 .explore-trigger {
   background: none;
   border: none;
@@ -440,7 +463,6 @@ html, body {
   filter: drop-shadow(0 0 18px rgba(240, 230, 211, 0.12));
 }
 
-/* Gentle float + glow pulse to hint at interactivity */
 @keyframes explorePulse {
   0%, 100% {
     transform: translateY(0px);
@@ -474,7 +496,7 @@ html, body {
   opacity: 0;
 }
 
-/* ── GATED SECTIONS — blurred + faded until revealed ── */
+/* GATED SECTIONS — blurred + faded until revealed */
 .gated-section {
   filter: blur(8px);
   opacity: 0.25;
@@ -493,9 +515,7 @@ html, body {
   pointer-events: auto;
 }
 
-/*
-   SECTION 2
-*/
+/* SECTION 2 */
 .Home-section2 {
   position: relative;
   z-index: 1;
@@ -517,9 +537,7 @@ html, body {
   padding: 0;
 }
 
-/* 
-   SECTION 3
-*/
+/* SECTION 3 */
 .Home-section3 {
   position: relative;
   z-index: 1;
@@ -540,45 +558,55 @@ html, body {
   padding: 0;
 }
 
-/* ── TEXT IMAGE — pinned to top of section ── */
+/*TEXT IMAGE — pinned to top of section */
 .campaign-text-image {
   width: 100%;
   padding: 2.5rem 2.5rem 0 2.5rem;
   box-sizing: border-box;
+  text-align: center;
 }
 
 .Adidas-TextImage,
 .Brand-Recall-TextImage {
   width: auto;
-  max-width: 50%;
+  max-width: min(50%, 420px);
   height: auto;
-  display: block;
+  display: inline-block;
   object-fit: contain;
   opacity: 0.9;
-  margin-left: 2rem;
-  margin-bottom: -120px;
-  margin-top: -100px;
-  display: inline;
-  margin-left: 430px;
-  
+  margin: 0 auto;
 }
 
-/* ── CAMPAIGN BODY — campaign image + footer ── */
+@media (max-width: 640px) {
+  .Adidas-TextImage,
+  .Brand-Recall-TextImage {
+    max-width: 80%;
+  }
+}
 .campaign-body {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
   align-items: center;
-  justify-content: center;
+  justify-items: center;
   padding: 2rem 2.5rem 2.5rem 2.5rem;
   box-sizing: border-box;
   gap: 1.8rem;
-  display:grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  
 }
 
-/* ------- CAMPAIGN IMAGES ------- */
+@media (max-width: 900px) {
+  .campaign-body {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 560px) {
+  .campaign-body {
+    grid-template-columns: 1fr;
+    padding: 1.5rem 1.2rem 2rem;
+  }
+}
+
+/*  CAMPAIGN IMAGES  */
 .Adidas-Campaign-img,
 .Adidas-Campaign-img-1,
 .Adidas-Campaign-img-2,
@@ -596,25 +624,22 @@ html, body {
 
 .Tape-Overlay-bottom {
   position: absolute;
-  width: 300px;
+  width: clamp(150px, 20vw, 300px);
   height: auto;
   transform: translateX(-50%) rotate(-12deg);
   opacity: 0.85;
-  margin-bottom: -580px;
-  margin-right:50px;
 }
+
 .Tape-Overlay-Top {
   position: absolute;
-  width: 300px;
+  width: clamp(150px, 20vw, 300px);
   height: auto;
   transform: translateX(-50%) rotate(-12deg);
   opacity: 0.85;
-  margin-top: -500px;
-  margin-left:50px;
 }
 
 .Adidas-Campaign-img:hover,
-.Brand-Recall-img:hover
+.Brand-Recall-img:hover,
 .Adidas-Campaign-img-1:hover,
 .Adidas-Campaign-img-2:hover,
 .Brand-Recall-img-1:hover,
@@ -623,17 +648,18 @@ html, body {
   transform: scale(1.01);
 }
 
-/* ------ FOOTER ROW — description + button ------ */
+/*  FOOTER ROW — description + button  */
 .campaign-footer {
   width: 100%;
   max-width: 700px;
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  gap: 2rem;
+  gap: 1.2rem;
 }
 
-/* ── DESCRIPTION TEXT ── */
+/*  DESCRIPTION TEXT */
 .campaign-desc {
   font-family: 'Jost', sans-serif;
   font-size: 0.78rem;
@@ -646,7 +672,7 @@ html, body {
   letter-spacing: 0.01em;
 }
 
-/* ------EXPLORE CAMPAIGN BUTTON ----- */
+/*  EXPLORE CAMPAIGN BUTTON  */
 .Explore-Campaign {
   display: inline-flex;
   align-items: center;
@@ -686,7 +712,7 @@ html, body {
   stroke: #1a1a1a;
 }
 
-/*-------------- 2D Illustrartions --------------*/
+/* 2D ILLUSTRATIONS*/
 .Introductions-2D {
   grid-column: 1 / -1;
   width: 100%;
@@ -698,172 +724,142 @@ html, body {
   gap: 0;
   margin: 0;
 }
-.Intro-Text{
-    
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(10rem, 10vw, 10rem);
-    line-height: 1.1;
-    text-transform: uppercase;
-    color: #e8dcc8;
-    background: transparent;
-    margin: 0;
-    margin-left: 670px;
+
+.Intro-Text {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(2.5rem, 8vw, 6rem);
+  line-height: 1.1;
+  text-transform: uppercase;
+  color: #e8dcc8;
+  background: transparent;
+  margin: 0;
+  text-align: center;
 }
-.Intro-Img{
-    width: 40%;
-    height: auto;
-    object-fit: contain;
-    display: block;
-    margin-left: 480px;
-    margin-top: -150px;
+
+.Intro-Img {
+  width: min(40%, 400px);
+  height: auto;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
 }
-.Introduction-2d-Container{
-   width: 100%;
-   min-height: 100vh;
-   background: #1c1c1c;
-   border-radius: 50px;
-   border: 1px solid rgba(255, 255, 255, 0.1);
-   box-sizing: border-box;
-   overflow: hidden;
-   display: flex;
-   flex-direction: column;
-   padding: 0;
+
+.Introduction-2d-Container {
+  width: 100%;
+  min-height: 100vh;
+  background: #1c1c1c;
+  border-radius: 50px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-sizing: border-box;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
 }
-.intro-2ddescription{
-    font-family: 'Jost', sans-serif;
-    font-size: 20px;
-    font-weight: 300;
-    line-height: 1.75;
-    color: rgba(240, 230, 211, 0.45);
-    margin: 0;
-    max-width: 100%;
-    text-transform: none;
-    letter-spacing: 0.01em;
-    margin-left: 200px;
-    margin-top: -280px;
+
+.intro-2ddescription {
+  font-family: 'Jost', sans-serif;
+  font-size: clamp(0.9rem, 2vw, 1.25rem);
+  font-weight: 300;
+  line-height: 1.75;
+  color: rgba(240, 230, 211, 0.45);
+  margin: 1rem auto 0;
+  max-width: 700px;
+  text-transform: none;
+  letter-spacing: 0.01em;
+  text-align: center;
 }
+
 .button-container {
-    display: flex;
-    gap: 20px; 
-    justify-content: center;
-    margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 20px;
 }
 
 .Game-Dev-Button,
-.Digital-Art-Button {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 0.85rem;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: #e8dcc8;
-    text-decoration: none;
-
-    border: 1px solid rgba(232, 220, 200, 0.25);
-    border-radius: 50px;
-
-    width: 500px;
-    height: 500px;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    background: transparent;
-    cursor: pointer;
-    transition: background 0.25s ease, border-color 0.25s ease;
+.Digital-Art-Button,
+.button-link-Asset-Design-Button {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 0.85rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #e8dcc8;
+  text-decoration: none;
+  border: 1px solid rgba(232, 220, 200, 0.25);
+  border-radius: 50px;
+  width: clamp(200px, 40vw, 500px);
+  height: clamp(200px, 40vw, 500px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: transparent;
+  cursor: pointer;
+  transition: background 0.25s ease, border-color 0.25s ease;
 }
 
 .Game-Dev-Button:hover,
-.Digital-Art-Button:hover {
-    background: rgba(232, 220, 200, 0.1);
-    border-color: rgba(232, 220, 200, 0.5);
-}
-.button-link{
-    text-decoration: none;
-    color: #e8dcc8;
-    text-align: center;
-
-}
-.button-link-Asset-Design-Button{
-     font-family: 'Bebas Neue', sans-serif;
-    font-size: 0.85rem;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: #e8dcc8;
-    text-decoration: none;
-
-    border: 1px solid rgba(232, 220, 200, 0.25);
-    border-radius: 50px;
-
-    width: 500px;
-    height: 500px;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    background: transparent;
-    cursor: pointer;
-    transition: background 0.25s ease, border-color 0.25s ease;
-
-
-}
+.Digital-Art-Button:hover,
 .button-link-Asset-Design-Button:hover {
-      background: rgba(232, 220, 200, 0.1);
-    border-color: rgba(232, 220, 200, 0.5);
-}
-.project-section{
-    grid-column: 1 / -1;
-    width: 97.5%;
-     min-height: 200vh;
-     background: #1c1c1c;
-     border-radius: 50px;
-     border: 1px solid rgba(255, 255, 255, 0.1);
-     box-sizing: border-box;
-     overflow: hidden;
-     display: flex;
-     flex-direction: column;
-     padding: 0;
-     margin-top: 20px;
-     margin-left:20px;
-     margin-right: 20px;
+  background: rgba(232, 220, 200, 0.1);
+  border-color: rgba(232, 220, 200, 0.5);
 }
 
-.Project-Description{
-    font-family: 'Jost', sans-serif;
-    font-size: 20px;
-    font-weight: 300;
-    line-height: 1.75;
-    color: rgba(240, 230, 211, 0.45);
-    margin: 0;
-    max-width: 100%;
-    text-transform: none;
-    letter-spacing: 0.01em;
-    margin: 20px;
-    margin-top: -120px;
-    align-self: center; 
-}
-.About-Introduction-img{
-  align-self: center; 
-  display:flex;
-  margin-left:500px;
-
+.button-link {
+  text-decoration: none;
+  color: #e8dcc8;
+  text-align: center;
 }
 
-.About-page-text{
+/* PROJECT SECTION */
+.project-section {
+  grid-column: 1 / -1;
+  width: 97.5%;
+  min-height: auto;
+  background: #1c1c1c;
+  border-radius: 50px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-sizing: border-box;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  margin: 20px auto;
+}
+
+.Project-Description {
+  font-family: 'Jost', sans-serif;
+  font-size: clamp(0.9rem, 2vw, 1.25rem);
+  font-weight: 300;
+  line-height: 1.75;
+  color: rgba(240, 230, 211, 0.45);
+  margin: 1.5rem 20px 0;
+  max-width: 100%;
+  text-transform: none;
+  letter-spacing: 0.01em;
+  align-self: center;
+}
+
+.About-Introduction-img {
+  align-self: center;
+  display: flex;
+  margin: 0 auto;
+}
+
+.About-page-text {
   font-family: 'Jost';
-  color:#e8dcc8;
-  font-size:20px;
-  margin-left:50px;
-  margin-right:50px;
-  margin-top: -100px;
-  margin-bottom:50px;
+  color: #e8dcc8;
+  font-size: clamp(0.9rem, 2vw, 1.25rem);
+  margin: 1.5rem 50px;
 }
 
 .ConnectWithMe {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   align-items: center;
+  justify-content: center;
   gap: 16px;
 }
 
@@ -873,8 +869,6 @@ html, body {
   object-fit: contain;
   display: block;
   transition: opacity 0.2s ease;
-  margin-left:650px;
-  margin-right: -600px;
 }
 
 .connectwithmeimage:hover {
@@ -883,18 +877,9 @@ html, body {
 
 .connectTitle {
   font-family: 'Jost';
-  height: 300px;
   display: flex;
+  justify-content: center;
   align-items: center;
+  height: 300px;
   color: #f0e6d3;
-  margin-left: 650px;
 }
-
-.connectTitle {
-  display: flex;
-  justify-content: center;   
-  align-items: center;
-  height: 300px;
-  color: #f0e6d3;
-  
-} 

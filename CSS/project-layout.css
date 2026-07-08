@@ -1,9 +1,4 @@
-/* ─────────────────────────────────────────────────────────────
-   project-layout.css  —  save to /CSS/project-layout.css
-   Works alongside your existing Lightbox.css / Lightbox.js.
-───────────────────────────────────────────────────────────── */
 
-/* ── PROJECT BODY ── */
 .project-body {
   display: flex;
   flex-direction: column;
@@ -13,7 +8,7 @@
   width: 100%;
 } 
 
-/* ── DESCRIPTION ── */
+
 .project-desc {
   font-family: 'Jost', sans-serif;
   font-size: 0.95rem;
@@ -26,7 +21,7 @@
   letter-spacing: 0.01em;
 }
 
-/* ── VIDEO WRAPPER ── */
+
 .project-video-wrap {
   width: 100%;
   border-radius: 16px;
@@ -43,19 +38,17 @@
   display: block;
 }
 
-/* ── 3-COLUMN GRID ── */
-/* Each cell is either an .lb-gallery stack or a .project-video-wrap */
+
 .project-img-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1.2rem;
   width: 100%;
-  /* rows size to the tallest cell; lb-gallery has its own fixed height */
+  
   align-items: start;
 }
 
-/* Video cells inside the grid lose the outer margin / max-height
-   so they sit flush like the gallery stacks */
+
 .project-img-grid > .project-video-wrap {
   max-height: none;
   aspect-ratio: 4 / 3;
@@ -63,27 +56,25 @@
   margin: 0;
 }
 
-/* ── lb-gallery INSIDE the grid ── */
-/* Override the standalone .lb-gallery dimensions so it fills its cell */
+
 .project-img-grid > .lb-gallery {
-  /* height matches the card size set in Lightbox.css (.lb-card = 500px)
-     but we let the grid width drive things, so cap the height proportionally */
+  
   width: 100%;
   height: 0;
-  padding-bottom: 75%; /* 4:3 ratio — adjust if you prefer square (100%) */
+  padding-bottom: 75%; 
   position: relative;
 }
 
-/* Cards inside a grid gallery are absolutely positioned relative to .lb-gallery */
+
 .project-img-grid > .lb-gallery .lb-card {
-  /* inherit the cell's dimensions rather than the fixed 500 × 500 from Lightbox.css */
+  
   width: 88%;
   height: 88%;
   top: 6%;
   left: 6%;
 }
 
-/* ── GITHUB LINK ── */
+
 .link-to-github {
   margin-top: 0.5rem;
 }
@@ -111,7 +102,7 @@
   color: #1a1a1a;
 }
 
-/* ── RESPONSIVE ── */
+
 @media (max-width: 900px) {
   .project-img-grid {
     grid-template-columns: repeat(2, 1fr);
